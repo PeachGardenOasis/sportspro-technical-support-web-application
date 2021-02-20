@@ -27,8 +27,8 @@ namespace Assignment1
         {
             services.AddControllersWithViews();
 
-            services.AddDbContext<FaqsContext>(options =>
-                options.UseSqlServer(Configuration.GetConnectionString("FaqsContext")));
+            services.AddDbContext<IncidentContext>(options =>
+                options.UseSqlServer(Configuration.GetConnectionString("IncidentContext")));
 
         }
 

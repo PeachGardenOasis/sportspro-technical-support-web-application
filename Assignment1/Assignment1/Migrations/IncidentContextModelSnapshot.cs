@@ -8,8 +8,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Assignment1.Migrations
 {
-    [DbContext(typeof(FaqsContext))]
-    partial class FaqsContextModelSnapshot : ModelSnapshot
+    [DbContext(typeof(IncidentContext))]
+    partial class IncidentContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)
         {
@@ -49,7 +49,7 @@ namespace Assignment1.Migrations
                             productCode = "M2MD6D",
                             productName = "Software Package Vol. 1",
                             productPrice = 4.9900000000000002,
-                            releaseDate = new DateTime(2021, 2, 20, 15, 0, 42, 41, DateTimeKind.Local).AddTicks(5350)
+                            releaseDate = new DateTime(2021, 2, 20, 16, 23, 48, 3, DateTimeKind.Local).AddTicks(510)
                         });
                 });
 #pragma warning restore 612, 618

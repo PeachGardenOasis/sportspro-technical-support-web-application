@@ -26,7 +26,7 @@ namespace Assignment1.Migrations
             migrationBuilder.InsertData(
                 table: "Product",
                 columns: new[] { "productId", "productCode", "productName", "productPrice", "releaseDate" },
-                values: new object[] { 1, "M2MD6D", "Software Package Vol. 1", 4.9900000000000002, new DateTime(2021, 2, 20, 15, 0, 42, 41, DateTimeKind.Local).AddTicks(5350) });
+                values: new object[] { 1, "M2MD6D", "Software Package Vol. 1", 4.9900000000000002, new DateTime(2021, 2, 20, 16, 23, 48, 3, DateTimeKind.Local).AddTicks(510) });
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)

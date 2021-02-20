@@ -24,5 +24,6 @@ using Assignment1.Models;
 
 #line default
 #line hidden
+#nullable disable
 }
 #pragma warning restore 1591

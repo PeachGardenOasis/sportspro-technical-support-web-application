@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Assignment1.Models
 {
-    public class FaqsContext : DbContext
+    public class IncidentContext : DbContext
     {
-        public FaqsContext(DbContextOptions<FaqsContext> options)
+        public IncidentContext(DbContextOptions<IncidentContext> options)
             : base(options)
         {
 
