@@ -19,7 +19,7 @@ namespace Assignment1.Models
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Product>().HasData(
-                    new Product { productCode = "M2MD6D", productName = "Software Package Vol. 1", productPrice = 4.99, releaseDate = DateTime.Now}
+                    new Product { productId = 1, productCode = "M2MD6D", productName = "Software Package Vol. 1", productPrice = 4.99, releaseDate = DateTime.Now}
                 );
         }
     }

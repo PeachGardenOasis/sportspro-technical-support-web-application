@@ -1,3 +1,5 @@
+using Assignment1.Models;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -24,6 +26,10 @@ namespace Assignment1
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+
+            services.AddDbContext<FaqsContext>(options =>
+                options.UseSqlServer(Configuration.GetConnectionString("FaqsContext")));
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
