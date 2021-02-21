@@ -31,7 +31,7 @@ namespace Assignment1.Models
                     productCode = "TRNY10",
                     productName = "Tournament Master 1.0",
                     productPrice = 4.99,
-                    releaseDate = new DateTime(2015, 12, 1) //YYYY/M/D
+                    releaseDate = new DateTime(2015, 12, 1) //YYYY/M/d
                     },
                 new Product
                 {
