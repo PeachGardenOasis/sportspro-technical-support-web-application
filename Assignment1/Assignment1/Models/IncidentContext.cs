@@ -20,10 +20,19 @@ namespace Assignment1.Models
 
         DbSet<Incident> Incident { get; set; }
 
+        DbSet<Technician> Technician { get; set; }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Product>().HasData(
-                    new Product { productId = 1, productCode = "M2MD6D", productName = "Software Package Vol. 1", productPrice = 4.99, releaseDate = DateTime.Now}
+                    new Product 
+                    { 
+                        productId = 1, 
+                        productCode = "M2MD6D", 
+                        productName = "Software Package Vol. 1", 
+                        productPrice = 4.99, 
+                        releaseDate = DateTime.Now
+                    }
                 );
 
             modelBuilder.Entity<Customer>().HasData(
@@ -32,49 +41,49 @@ namespace Assignment1.Models
                     customerId = 1,
                     customerFullName = "Kaitlyn Anthoni",
                     customerEmail = "Kanthoni@pge.com",
-                    customerCity = "San Francisco",
+                    customerAddress = "San Francisco",
                 },
                 new Customer
                 {
                     customerId = 2,
                     customerFullName = "Ana Irvin",
                     customerEmail = "ania@pmma.nidc.com",
-                    customerCity = "Washington",
+                    customerAddress = "Washington",
                 },
                 new Customer
                 {
                     customerId = 3,
                     customerFullName = "Gonzalo Keeton",
                     customerEmail = " ",
-                    customerCity = "Mission Viejo",
+                    customerAddress = "Mission Viejo",
                 },
                 new Customer
                 {
                     customerId = 4,
                     customerFullName = "Anton Mauro",
                     customerEmail = "amauro@yahoo.org",
-                    customerCity = "Sacramento",
+                    customerAddress = "Sacramento",
                 },
                 new Customer
                 {
                     customerId = 5,
                     customerFullName = "Kendall Mayte",
                     customerEmail = "Kmayte@fresco.ca.gov",
-                    customerCity = "Fresco",
+                    customerAddress = "Fresco",
                 },
                 new Customer
                 {
                     customerId = 6,
                     customerFullName = "Kenzie Quinn",
                     customerEmail = "kenzie@mma.jobtrak.com",
-                    customerCity = "Los Angeles",
+                    customerAddress = "Los Angeles",
                 },
                 new Customer
                 {
                     customerId = 7,
                     customerFullName = "Marvin Quintin",
                     customerEmail = "marvin@expedata.com",
-                    customerCity = "Fresno",
+                    customerAddress = "Fresno",
                 }
                 );
                 

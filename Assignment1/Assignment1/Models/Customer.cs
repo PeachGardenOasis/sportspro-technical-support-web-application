@@ -13,7 +13,9 @@ namespace Assignment1.Models
 
         public string customerEmail { get; set; }
 
-        public string customerCity { get; set; }
+        public string customerAddress { get; set; }
+
+        public string customerPhone { get; set; }
 
         
     }
