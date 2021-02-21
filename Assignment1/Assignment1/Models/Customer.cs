@@ -16,7 +16,5 @@ namespace Assignment1.Models
         public string customerAddress { get; set; }
 
         public string customerPhone { get; set; }
-
-        
     }
 }
