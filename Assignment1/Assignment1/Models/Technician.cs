@@ -9,7 +9,7 @@ namespace Assignment1.Models
     {
         public int technicianId { get; set; }
 
-        public string technicianName { get; set; }
+        public string technicianFullName { get; set; }
 
         public string technicianEmail { get; set; }
 

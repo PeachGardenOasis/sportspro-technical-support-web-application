@@ -15,26 +15,106 @@ namespace Assignment1.Models
         }
 
         DbSet<Product> Product { get; set; }
-        
+        DbSet<Technician> Technician { get; set; }
         DbSet<Customer> Customer { get; set; }
 
         DbSet<Incident> Incident { get; set; }
 
-        DbSet<Technician> Technician { get; set; }
+        
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Product>().HasData(
-                    new Product 
-                    { 
-                        productId = 1, 
-                        productCode = "M2MD6D", 
-                        productName = "Software Package Vol. 1", 
-                        productPrice = 4.99, 
-                        releaseDate = DateTime.Now
-                    }
+               new Product
+                    {
+                    productId = 1,
+                    productCode = "TRNY10",
+                    productName = "Tournament Master 1.0",
+                    productPrice = 4.99,
+                    releaseDate = new DateTime(2015, 12, 1) //YYYY/M/D
+                    },
+                new Product
+                {
+                    productId = 2,
+                    productCode = "LEAG10",
+                    productName = "League Scheduler 1.0",
+                    productPrice = 4.99,
+                    releaseDate = new DateTime(2016, 5, 1)
+                }, new Product
+                {
+                    productId = 3,
+                    productCode = "LEAGD10",
+                    productName = "League Scheduler Deluxe 1.0",
+                    productPrice = 7.99,
+                    releaseDate = new DateTime(2016, 8, 1)
+                }, new Product
+                {
+                    productId = 4,
+                    productCode = "DRAFT10",
+                    productName = "Draft Maanger 1.0",
+                    productPrice = 4.99,
+                    releaseDate = new DateTime(2017, 2, 1)
+                }, new Product
+                {
+                    productId = 5,
+                    productCode = "TEAM10",
+                    productName = "Team Manager 1.0",
+                    productPrice = 4.99,
+                    releaseDate = new DateTime(2017, 5, 1)
+                }, new Product
+                {
+                    productId = 6,
+                    productCode = "TRNY20",
+                    productName = "Tournament Master 2.0",
+                    productPrice = 5.99,
+                    releaseDate = new DateTime(2015, 2, 15)
+                }, new Product
+                {
+                    productId = 7,
+                    productCode = "DRAFT20",
+                    productName = "Draft Manager 2.0",
+                    productPrice = 5.99,
+                    releaseDate = new DateTime(2015, 7, 15)
+                }
                 );
+            modelBuilder.Entity<Technician>().HasData(
+                new Technician
+                {
+                    technicianId = 1,
+                    technicianFullName = "Alison Diaz",
+                    technicianEmail = "alison@sportsprosoftware.com",
+                    technicianPhone = "800-555-0443",
+                },
 
+                new Technician
+                {
+                    technicianId = 2,
+                    technicianFullName = "Andrew Wilson",
+                    technicianEmail = "awilson@sportsprosoftware.com",
+                    technicianPhone = "800-555-0449",
+                },
+                new Technician
+                {
+                    technicianId = 3,
+                    technicianFullName = "Gina Fiori",
+                    technicianEmail = "gfiori@sportsprosoftware.com",
+                    technicianPhone = "800-555-0459",
+                },
+                new Technician
+                {
+                    technicianId = 4,
+                    technicianFullName = "Gunter Wendt",
+                    technicianEmail = "gunter@sportsprosoftware.com",
+                    technicianPhone = "800-555-0400",
+                },
+                new Technician
+                {
+                    technicianId = 5,
+                    technicianFullName = "Jason Lee",
+                    technicianEmail = "jason@sportsprosoftware.com",
+                    technicianPhone = "800-555-0444",
+                }
+                );
             modelBuilder.Entity<Customer>().HasData(
                 new Customer
                 {
@@ -47,14 +127,14 @@ namespace Assignment1.Models
                 {
                     customerId = 2,
                     customerFullName = "Ana Irvin",
-                    customerEmail = "ania@pmma.nidc.com",
+                    customerEmail = "ania@mma.nidc.com",
                     customerAddress = "Washington",
                 },
                 new Customer
                 {
                     customerId = 3,
                     customerFullName = "Gonzalo Keeton",
-                    customerEmail = " ",
+                    customerEmail = "  ",
                     customerAddress = "Mission Viejo",
                 },
                 new Customer
@@ -68,8 +148,8 @@ namespace Assignment1.Models
                 {
                     customerId = 5,
                     customerFullName = "Kendall Mayte",
-                    customerEmail = "Kmayte@fresco.ca.gov",
-                    customerAddress = "Fresco",
+                    customerEmail = "kmayte@fresco.ca.gov",
+                    customerAddress = "Fresno",
                 },
                 new Customer
                 {
@@ -86,9 +166,9 @@ namespace Assignment1.Models
                     customerAddress = "Fresno",
                 }
                 );
-                
-                // incidents
-                modelBuilder.Entity<Incident>().HasData(
+
+            // incidents
+            modelBuilder.Entity<Incident>().HasData(
                 new Incident
                 {
                     incidentId = 1,
