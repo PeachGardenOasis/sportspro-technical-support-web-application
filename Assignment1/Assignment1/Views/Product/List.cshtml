@@ -1,0 +1,29 @@
+﻿@model IEnumerable<Product>
+@{
+    ViewData["Title"] = "Product Manager";
+}
+
+<h3>Product Manager</h3>
+<table>
+    <thead>
+        <tr>Code</tr>
+        <tr>Name</tr>
+        <tr>Price</tr>
+        <tr>Release Date</tr>
+        <tr></tr>
+        <tr></tr>
+    </thead>
+    <tbody>
+        @foreach(Product product in Model)
+        {
+            <tr>
+                <td>@product.productCode</td>
+                <td>@product.productName</td>
+                <td>@product.productPrice</td>
+                <td>@product.releaseDate</td>
+                <td>Temporary Edit</td>
+                <td>Temporary Delete</td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -36,7 +36,6 @@ D:\School\Semester 4\COMP2139\Assignment\Assignment1\Assignment1\Assignment1\obj
 D:\School\Semester 4\COMP2139\Assignment\Assignment1\Assignment1\Assignment1\obj\Debug\netcoreapp3.1\Assignment1.TagHelpers.output.cache
 D:\School\Semester 4\COMP2139\Assignment\Assignment1\Assignment1\Assignment1\obj\Debug\netcoreapp3.1\Assignment1.RazorCoreGenerate.cache
 D:\School\Semester 4\COMP2139\Assignment\Assignment1\Assignment1\Assignment1\obj\Debug\netcoreapp3.1\Razor\Views\Home\Index.cshtml.g.cs
-D:\School\Semester 4\COMP2139\Assignment\Assignment1\Assignment1\Assignment1\obj\Debug\netcoreapp3.1\Razor\Views\Home\Privacy.cshtml.g.cs
 D:\School\Semester 4\COMP2139\Assignment\Assignment1\Assignment1\Assignment1\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_Layout.cshtml.g.cs
 D:\School\Semester 4\COMP2139\Assignment\Assignment1\Assignment1\Assignment1\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_ValidationScriptsPartial.cshtml.g.cs
 D:\School\Semester 4\COMP2139\Assignment\Assignment1\Assignment1\Assignment1\obj\Debug\netcoreapp3.1\Razor\Views\_ViewImports.cshtml.g.cs
@@ -102,3 +101,5 @@ D:\School\Semester 4\COMP2139\Assignment\Assignment1\Assignment1\Assignment1\bin
 D:\School\Semester 4\COMP2139\Assignment\Assignment1\Assignment1\Assignment1\obj\Debug\netcoreapp3.1\Assignment1.Views.pdb
 D:\School\Semester 4\COMP2139\Assignment\Assignment1\Assignment1\Assignment1\obj\Debug\netcoreapp3.1\Assignment1.csproj.CopyComplete
 D:\School\Semester 4\COMP2139\Assignment\Assignment1\Assignment1\Assignment1\obj\Debug\netcoreapp3.1\Assignment1.genruntimeconfig.cache
+D:\School\Semester 4\COMP2139\Assignment\Assignment1\Assignment1\Assignment1\obj\Debug\netcoreapp3.1\Razor\Views\Product\Edit.cshtml.g.cs
+D:\School\Semester 4\COMP2139\Assignment\Assignment1\Assignment1\Assignment1\obj\Debug\netcoreapp3.1\Razor\Views\Product\List.cshtml.g.cs

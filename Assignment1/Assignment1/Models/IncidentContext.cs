@@ -14,11 +14,11 @@ namespace Assignment1.Models
 
         }
 
-        DbSet<Product> Product { get; set; }
-        DbSet<Technician> Technician { get; set; }
-        DbSet<Customer> Customer { get; set; }
+        public DbSet<Product> Product { get; set; }
+        public DbSet<Technician> Technician { get; set; }
+        public DbSet<Customer> Customer { get; set; }
 
-        DbSet<Incident> Incident { get; set; }
+        public DbSet<Incident> Incident { get; set; }
 
         
 

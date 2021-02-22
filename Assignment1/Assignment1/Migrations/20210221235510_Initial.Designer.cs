@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Assignment1.Migrations
 {
     [DbContext(typeof(IncidentContext))]
-    [Migration("20210220215731_Initial")]
+    [Migration("20210221235510_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -28,13 +28,16 @@ namespace Assignment1.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("customerCity")
+                    b.Property<string>("customerAddress")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("customerEmail")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("customerFullName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("customerPhone")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("customerId");
@@ -45,49 +48,49 @@ namespace Assignment1.Migrations
                         new
                         {
                             customerId = 1,
-                            customerCity = "San Francisco",
+                            customerAddress = "San Francisco",
                             customerEmail = "Kanthoni@pge.com",
                             customerFullName = "Kaitlyn Anthoni"
                         },
                         new
                         {
                             customerId = 2,
-                            customerCity = "Washington",
-                            customerEmail = "ania@pmma.nidc.com",
+                            customerAddress = "Washington",
+                            customerEmail = "ania@mma.nidc.com",
                             customerFullName = "Ana Irvin"
                         },
                         new
                         {
                             customerId = 3,
-                            customerCity = "Mission Viejo",
-                            customerEmail = " ",
+                            customerAddress = "Mission Viejo",
+                            customerEmail = "  ",
                             customerFullName = "Gonzalo Keeton"
                         },
                         new
                         {
                             customerId = 4,
-                            customerCity = "Sacramento",
+                            customerAddress = "Sacramento",
                             customerEmail = "amauro@yahoo.org",
                             customerFullName = "Anton Mauro"
                         },
                         new
                         {
                             customerId = 5,
-                            customerCity = "Fresco",
-                            customerEmail = "Kmayte@fresco.ca.gov",
+                            customerAddress = "Fresno",
+                            customerEmail = "kmayte@fresco.ca.gov",
                             customerFullName = "Kendall Mayte"
                         },
                         new
                         {
                             customerId = 6,
-                            customerCity = "Los Angeles",
+                            customerAddress = "Los Angeles",
                             customerEmail = "kenzie@mma.jobtrak.com",
                             customerFullName = "Kenzie Quinn"
                         },
                         new
                         {
                             customerId = 7,
-                            customerCity = "Fresno",
+                            customerAddress = "Fresno",
                             customerEmail = "marvin@expedata.com",
                             customerFullName = "Marvin Quintin"
                         });
@@ -178,10 +181,116 @@ namespace Assignment1.Migrations
                         new
                         {
                             productId = 1,
-                            productCode = "M2MD6D",
-                            productName = "Software Package Vol. 1",
+                            productCode = "TRNY10",
+                            productName = "Tournament Master 1.0",
                             productPrice = 4.9900000000000002,
-                            releaseDate = new DateTime(2021, 2, 20, 16, 57, 31, 364, DateTimeKind.Local).AddTicks(5949)
+                            releaseDate = new DateTime(2015, 12, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            productId = 2,
+                            productCode = "LEAG10",
+                            productName = "League Scheduler 1.0",
+                            productPrice = 4.9900000000000002,
+                            releaseDate = new DateTime(2016, 5, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            productId = 3,
+                            productCode = "LEAGD10",
+                            productName = "League Scheduler Deluxe 1.0",
+                            productPrice = 7.9900000000000002,
+                            releaseDate = new DateTime(2016, 8, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            productId = 4,
+                            productCode = "DRAFT10",
+                            productName = "Draft Maanger 1.0",
+                            productPrice = 4.9900000000000002,
+                            releaseDate = new DateTime(2017, 2, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            productId = 5,
+                            productCode = "TEAM10",
+                            productName = "Team Manager 1.0",
+                            productPrice = 4.9900000000000002,
+                            releaseDate = new DateTime(2017, 5, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            productId = 6,
+                            productCode = "TRNY20",
+                            productName = "Tournament Master 2.0",
+                            productPrice = 5.9900000000000002,
+                            releaseDate = new DateTime(2015, 2, 15, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            productId = 7,
+                            productCode = "DRAFT20",
+                            productName = "Draft Manager 2.0",
+                            productPrice = 5.9900000000000002,
+                            releaseDate = new DateTime(2015, 7, 15, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        });
+                });
+
+            modelBuilder.Entity("Assignment1.Models.Technician", b =>
+                {
+                    b.Property<int>("technicianId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("technicianEmail")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("technicianFullName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("technicianPhone")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("technicianId");
+
+                    b.ToTable("Technician");
+
+                    b.HasData(
+                        new
+                        {
+                            technicianId = 1,
+                            technicianEmail = "alison@sportsprosoftware.com",
+                            technicianFullName = "Alison Diaz",
+                            technicianPhone = "800-555-0443"
+                        },
+                        new
+                        {
+                            technicianId = 2,
+                            technicianEmail = "awilson@sportsprosoftware.com",
+                            technicianFullName = "Andrew Wilson",
+                            technicianPhone = "800-555-0449"
+                        },
+                        new
+                        {
+                            technicianId = 3,
+                            technicianEmail = "gfiori@sportsprosoftware.com",
+                            technicianFullName = "Gina Fiori",
+                            technicianPhone = "800-555-0459"
+                        },
+                        new
+                        {
+                            technicianId = 4,
+                            technicianEmail = "gunter@sportsprosoftware.com",
+                            technicianFullName = "Gunter Wendt",
+                            technicianPhone = "800-555-0400"
+                        },
+                        new
+                        {
+                            technicianId = 5,
+                            technicianEmail = "jason@sportsprosoftware.com",
+                            technicianFullName = "Jason Lee",
+                            technicianPhone = "800-555-0444"
                         });
                 });
 #pragma warning restore 612, 618
