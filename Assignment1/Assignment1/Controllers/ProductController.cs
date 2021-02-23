@@ -53,7 +53,10 @@ namespace Assignment1.Controllers
         [HttpPost]
         public IActionResult Delete(Product product)
         {
-            return View();
+            context.Product.Remove(product); // remove 
+            context.SaveChanges();
+            return RedirectToAction("Index", "Home");
+
         }
     }
 }

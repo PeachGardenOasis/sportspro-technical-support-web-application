@@ -52,7 +52,11 @@ namespace Assignment1.Controllers
         [HttpPost]
         public IActionResult Delete(Incident incident)
         {
-            return View();
+            context.Incident.Remove(incident); // remove 
+            context.SaveChanges();
+            return RedirectToAction("Index", "Home");
+
+
         }
     }
 }

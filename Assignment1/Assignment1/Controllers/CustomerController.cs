@@ -44,15 +44,18 @@ namespace Assignment1.Controllers
         }
 
         [HttpPost]
-        public IActionResult Edit(Technician technician)
+        public IActionResult Edit(Customer customer)
         {
             return View();
         }
 
         [HttpPost]
-        public IActionResult Delete(Technician technician)
+        public IActionResult Delete(Customer customer)
         {
-            return View();
+            context.Customer.Remove(customer); // remove 
+            context.SaveChanges();
+            return RedirectToAction("Index", "Home");
+
         }
     }
 }

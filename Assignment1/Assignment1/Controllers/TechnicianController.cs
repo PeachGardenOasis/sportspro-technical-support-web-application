@@ -28,31 +28,54 @@ namespace Assignment1.Controllers
             // TO DO
             ViewBag.Action = "Add";
             ViewBag.Technician = context.Technician.OrderBy(c => c.technicianFullName.ToList());
-            return View("Edit");
+            return View("Edit", new Technician()); // makes new form from Technician template
         }
 
         [HttpGet]
-        public IActionResult Edit()
+        public IActionResult Edit(int id)
         {
+            ViewBag.Action = "Edit";
+            ViewBag.Technician = context.Technician.OrderBy(c => c.technicianFullName.ToList());
+
+            var technician=context.Technician
+                .Include(c=>c.)
+
             return View();
         }
 
         [HttpGet]
         public IActionResult Delete()
         {
-            return View();
+            var technician = context.Technician;
+            return View(technician);
         }
 
         [HttpPost]
         public IActionResult Edit(Technician technician)
         {
+            string action = (technician.technicianId==0)?"Add":"Edit";
+
+            if (ModelState.IsValid)
+            {
+                if (action == "Add")
+                {
+                    technician.DateAdded = DateTime.Now;
+                }
+            }
+            else
+            {
+                ViewBag.Action = "Edit";
+                ViewBag.Technician = context.Technician.OrderBy(c => c.technicianFullName.ToList());
+            }
             return View();
         }
 
         [HttpPost]
         public IActionResult Delete(Technician technician)
         {
-            return View();
+            context.Technician.Remove(technician); // remove technician
+            context.SaveChanges();
+            return RedirectToAction("Index", "Home");
         }
     }
 }
