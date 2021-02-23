@@ -13,9 +13,13 @@ namespace Assignment1.Migrations
                 {
                     customerId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    customerFullName = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    customerFirstName = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    customerLastName = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    customerCity = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    customerState = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    customerPostalCode = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    customerCountry = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     customerEmail = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    customerAddress = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     customerPhone = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
@@ -29,10 +33,12 @@ namespace Assignment1.Migrations
                 {
                     incidentId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    incidentTitle = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    incidentCustomer = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    incidentProduct = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    dateOpened = table.Column<DateTime>(type: "datetime2", nullable: false)
+                    incidentTitle = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    incidentDescription = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    incidentCustomer = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    incidentProduct = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    incidentDateOpened = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    incidentDateClosed = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -45,10 +51,10 @@ namespace Assignment1.Migrations
                 {
                     productId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    productCode = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    productName = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    productCode = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    productName = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     productPrice = table.Column<double>(type: "float", nullable: false),
-                    releaseDate = table.Column<DateTime>(type: "datetime2", nullable: false)
+                    productReleaseDate = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -61,9 +67,9 @@ namespace Assignment1.Migrations
                 {
                     technicianId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    technicianFullName = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    technicianEmail = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    technicianPhone = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    technicianFullName = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    technicianEmail = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    technicianPhone = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -72,32 +78,32 @@ namespace Assignment1.Migrations
 
             migrationBuilder.InsertData(
                 table: "Customer",
-                columns: new[] { "customerId", "customerAddress", "customerEmail", "customerFullName", "customerPhone" },
+                columns: new[] { "customerId", "customerCity", "customerCountry", "customerEmail", "customerFirstName", "customerLastName", "customerPhone", "customerPostalCode", "customerState" },
                 values: new object[,]
                 {
-                    { 1, "San Francisco", "Kanthoni@pge.com", "Kaitlyn Anthoni", null },
-                    { 2, "Washington", "ania@mma.nidc.com", "Ana Irvin", null },
-                    { 3, "Mission Viejo", "  ", "Gonzalo Keeton", null },
-                    { 4, "Sacramento", "amauro@yahoo.org", "Anton Mauro", null },
-                    { 5, "Fresno", "kmayte@fresco.ca.gov", "Kendall Mayte", null },
-                    { 6, "Los Angeles", "kenzie@mma.jobtrak.com", "Kenzie Quinn", null },
-                    { 7, "Fresno", "marvin@expedata.com", "Marvin Quintin", null }
+                    { 1, "San Francisco", " ", "Kanthoni@pge.com", "Kaitlyn", "Anthoni", " ", " ", " " },
+                    { 2, "Washington", " ", "ania@mma.nidc.com", "Ana", "Irvin", " ", " ", " " },
+                    { 3, "Mission Viejo", " ", "  ", "Gonzalo", "Keeton", " ", " ", " " },
+                    { 4, "Sacramento", " ", "amauro@yahoo.org", "Anton", "Mauro", " ", " ", " " },
+                    { 5, "Fresno", " ", "kmayte@fresco.ca.gov", "Kendall", "Mayte", " ", " ", " " },
+                    { 6, "Los Angeles", " ", "kenzie@mma.jobtrak.com", "Kenzie", "Quinn", " ", " ", " " },
+                    { 7, "Fresno", " ", "marvin@expedata.com", "Marvin", "Quintin", " ", " ", " " }
                 });
 
             migrationBuilder.InsertData(
                 table: "Incident",
-                columns: new[] { "incidentId", "dateOpened", "incidentCustomer", "incidentProduct", "incidentTitle" },
+                columns: new[] { "incidentId", "incidentCustomer", "incidentDateClosed", "incidentDateOpened", "incidentDescription", "incidentProduct", "incidentTitle" },
                 values: new object[,]
                 {
-                    { 1, new DateTime(2020, 1, 8, 0, 0, 0, 0, DateTimeKind.Unspecified), "Kendall Mayte", "Draft Manager 1.0", "Could not install" },
-                    { 2, new DateTime(2020, 1, 8, 0, 0, 0, 0, DateTimeKind.Unspecified), "Gonzoalo Keeton", "Tournament Master 1.0", "Could not install" },
-                    { 3, new DateTime(2020, 1, 9, 0, 0, 0, 0, DateTimeKind.Unspecified), "Ania Irvin", "League Scheduler Deluxe 1.0", "Error importing data" },
-                    { 4, new DateTime(2020, 1, 10, 0, 0, 0, 0, DateTimeKind.Unspecified), "Ania Irvin", "League Scheduler 1.0", "Error launching data" }
+                    { 1, "Kendall Mayte", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2020, 1, 8, 0, 0, 0, 0, DateTimeKind.Unspecified), " ", "Draft Manager 1.0", "Could not install" },
+                    { 2, "Gonzoalo Keeton", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2020, 1, 8, 0, 0, 0, 0, DateTimeKind.Unspecified), " ", "Tournament Master 1.0", "Could not install" },
+                    { 3, "Ania Irvin", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2020, 1, 9, 0, 0, 0, 0, DateTimeKind.Unspecified), " ", "League Scheduler Deluxe 1.0", "Error importing data" },
+                    { 4, "Ania Irvin", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2020, 1, 10, 0, 0, 0, 0, DateTimeKind.Unspecified), " ", "League Scheduler 1.0", "Error launching data" }
                 });
 
             migrationBuilder.InsertData(
                 table: "Product",
-                columns: new[] { "productId", "productCode", "productName", "productPrice", "releaseDate" },
+                columns: new[] { "productId", "productCode", "productName", "productPrice", "productReleaseDate" },
                 values: new object[,]
                 {
                     { 7, "DRAFT20", "Draft Manager 2.0", 5.9900000000000002, new DateTime(2015, 7, 15, 0, 0, 0, 0, DateTimeKind.Unspecified) },

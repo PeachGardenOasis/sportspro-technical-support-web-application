@@ -37,8 +37,7 @@ namespace Assignment1.Controllers
             ViewBag.Action = "Edit";
             ViewBag.Technician = context.Technician.OrderBy(c => c.technicianFullName.ToList());
 
-            var technician=context.Technician
-                .Include(c=>c.)
+          
 
             return View();
         }
@@ -59,7 +58,7 @@ namespace Assignment1.Controllers
             {
                 if (action == "Add")
                 {
-                    technician.DateAdded = DateTime.Now;
+                    
                 }
             }
             else

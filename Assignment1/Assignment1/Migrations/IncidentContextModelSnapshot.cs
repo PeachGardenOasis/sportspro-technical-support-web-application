@@ -26,16 +26,33 @@ namespace Assignment1.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("customerAddress")
+                    b.Property<string>("customerCity")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("customerCountry")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("customerEmail")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("customerFullName")
+                    b.Property<string>("customerFirstName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("customerLastName")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("customerPhone")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("customerPostalCode")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("customerState")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("customerId");
@@ -46,51 +63,86 @@ namespace Assignment1.Migrations
                         new
                         {
                             customerId = 1,
-                            customerAddress = "San Francisco",
+                            customerCity = "San Francisco",
+                            customerCountry = " ",
                             customerEmail = "Kanthoni@pge.com",
-                            customerFullName = "Kaitlyn Anthoni"
+                            customerFirstName = "Kaitlyn",
+                            customerLastName = "Anthoni",
+                            customerPhone = " ",
+                            customerPostalCode = " ",
+                            customerState = " "
                         },
                         new
                         {
                             customerId = 2,
-                            customerAddress = "Washington",
+                            customerCity = "Washington",
+                            customerCountry = " ",
                             customerEmail = "ania@mma.nidc.com",
-                            customerFullName = "Ana Irvin"
+                            customerFirstName = "Ana",
+                            customerLastName = "Irvin",
+                            customerPhone = " ",
+                            customerPostalCode = " ",
+                            customerState = " "
                         },
                         new
                         {
                             customerId = 3,
-                            customerAddress = "Mission Viejo",
+                            customerCity = "Mission Viejo",
+                            customerCountry = " ",
                             customerEmail = "  ",
-                            customerFullName = "Gonzalo Keeton"
+                            customerFirstName = "Gonzalo",
+                            customerLastName = "Keeton",
+                            customerPhone = " ",
+                            customerPostalCode = " ",
+                            customerState = " "
                         },
                         new
                         {
                             customerId = 4,
-                            customerAddress = "Sacramento",
+                            customerCity = "Sacramento",
+                            customerCountry = " ",
                             customerEmail = "amauro@yahoo.org",
-                            customerFullName = "Anton Mauro"
+                            customerFirstName = "Anton",
+                            customerLastName = "Mauro",
+                            customerPhone = " ",
+                            customerPostalCode = " ",
+                            customerState = " "
                         },
                         new
                         {
                             customerId = 5,
-                            customerAddress = "Fresno",
+                            customerCity = "Fresno",
+                            customerCountry = " ",
                             customerEmail = "kmayte@fresco.ca.gov",
-                            customerFullName = "Kendall Mayte"
+                            customerFirstName = "Kendall",
+                            customerLastName = "Mayte",
+                            customerPhone = " ",
+                            customerPostalCode = " ",
+                            customerState = " "
                         },
                         new
                         {
                             customerId = 6,
-                            customerAddress = "Los Angeles",
+                            customerCity = "Los Angeles",
+                            customerCountry = " ",
                             customerEmail = "kenzie@mma.jobtrak.com",
-                            customerFullName = "Kenzie Quinn"
+                            customerFirstName = "Kenzie",
+                            customerLastName = "Quinn",
+                            customerPhone = " ",
+                            customerPostalCode = " ",
+                            customerState = " "
                         },
                         new
                         {
                             customerId = 7,
-                            customerAddress = "Fresno",
+                            customerCity = "Fresno",
+                            customerCountry = " ",
                             customerEmail = "marvin@expedata.com",
-                            customerFullName = "Marvin Quintin"
+                            customerFirstName = "Marvin",
+                            customerLastName = "Quintin",
+                            customerPhone = " ",
+                            customerPostalCode = " ",
+                            customerState = " "
                         });
                 });
 
@@ -101,16 +153,26 @@ namespace Assignment1.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<DateTime>("dateOpened")
+                    b.Property<string>("incidentCustomer")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("incidentDateClosed")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("incidentCustomer")
+                    b.Property<DateTime>("incidentDateOpened")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("incidentDescription")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("incidentProduct")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("incidentTitle")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("incidentId");
@@ -121,32 +183,40 @@ namespace Assignment1.Migrations
                         new
                         {
                             incidentId = 1,
-                            dateOpened = new DateTime(2020, 1, 8, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             incidentCustomer = "Kendall Mayte",
+                            incidentDateClosed = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            incidentDateOpened = new DateTime(2020, 1, 8, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            incidentDescription = " ",
                             incidentProduct = "Draft Manager 1.0",
                             incidentTitle = "Could not install"
                         },
                         new
                         {
                             incidentId = 2,
-                            dateOpened = new DateTime(2020, 1, 8, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             incidentCustomer = "Gonzoalo Keeton",
+                            incidentDateClosed = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            incidentDateOpened = new DateTime(2020, 1, 8, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            incidentDescription = " ",
                             incidentProduct = "Tournament Master 1.0",
                             incidentTitle = "Could not install"
                         },
                         new
                         {
                             incidentId = 3,
-                            dateOpened = new DateTime(2020, 1, 9, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             incidentCustomer = "Ania Irvin",
+                            incidentDateClosed = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            incidentDateOpened = new DateTime(2020, 1, 9, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            incidentDescription = " ",
                             incidentProduct = "League Scheduler Deluxe 1.0",
                             incidentTitle = "Error importing data"
                         },
                         new
                         {
                             incidentId = 4,
-                            dateOpened = new DateTime(2020, 1, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             incidentCustomer = "Ania Irvin",
+                            incidentDateClosed = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            incidentDateOpened = new DateTime(2020, 1, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            incidentDescription = " ",
                             incidentProduct = "League Scheduler 1.0",
                             incidentTitle = "Error launching data"
                         });
@@ -160,15 +230,17 @@ namespace Assignment1.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("productCode")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("productName")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<double>("productPrice")
                         .HasColumnType("float");
 
-                    b.Property<DateTime>("releaseDate")
+                    b.Property<DateTime>("productReleaseDate")
                         .HasColumnType("datetime2");
 
                     b.HasKey("productId");
@@ -182,7 +254,7 @@ namespace Assignment1.Migrations
                             productCode = "TRNY10",
                             productName = "Tournament Master 1.0",
                             productPrice = 4.9900000000000002,
-                            releaseDate = new DateTime(2015, 12, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                            productReleaseDate = new DateTime(2015, 12, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
@@ -190,7 +262,7 @@ namespace Assignment1.Migrations
                             productCode = "LEAG10",
                             productName = "League Scheduler 1.0",
                             productPrice = 4.9900000000000002,
-                            releaseDate = new DateTime(2016, 5, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                            productReleaseDate = new DateTime(2016, 5, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
@@ -198,7 +270,7 @@ namespace Assignment1.Migrations
                             productCode = "LEAGD10",
                             productName = "League Scheduler Deluxe 1.0",
                             productPrice = 7.9900000000000002,
-                            releaseDate = new DateTime(2016, 8, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                            productReleaseDate = new DateTime(2016, 8, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
@@ -206,7 +278,7 @@ namespace Assignment1.Migrations
                             productCode = "DRAFT10",
                             productName = "Draft Maanger 1.0",
                             productPrice = 4.9900000000000002,
-                            releaseDate = new DateTime(2017, 2, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                            productReleaseDate = new DateTime(2017, 2, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
@@ -214,7 +286,7 @@ namespace Assignment1.Migrations
                             productCode = "TEAM10",
                             productName = "Team Manager 1.0",
                             productPrice = 4.9900000000000002,
-                            releaseDate = new DateTime(2017, 5, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                            productReleaseDate = new DateTime(2017, 5, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
@@ -222,7 +294,7 @@ namespace Assignment1.Migrations
                             productCode = "TRNY20",
                             productName = "Tournament Master 2.0",
                             productPrice = 5.9900000000000002,
-                            releaseDate = new DateTime(2015, 2, 15, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                            productReleaseDate = new DateTime(2015, 2, 15, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
@@ -230,24 +302,27 @@ namespace Assignment1.Migrations
                             productCode = "DRAFT20",
                             productName = "Draft Manager 2.0",
                             productPrice = 5.9900000000000002,
-                            releaseDate = new DateTime(2015, 7, 15, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                            productReleaseDate = new DateTime(2015, 7, 15, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         });
                 });
 
             modelBuilder.Entity("Assignment1.Models.Technician", b =>
                 {
-                    b.Property<int>("technicianId")
+                    b.Property<int?>("technicianId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("technicianEmail")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("technicianFullName")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("technicianPhone")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("technicianId");

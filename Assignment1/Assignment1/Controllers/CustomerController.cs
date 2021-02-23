@@ -27,7 +27,7 @@ namespace Assignment1.Controllers
         {
             // TO DO
             ViewBag.Action = "Add";
-            ViewBag.Customer = context.Customer.OrderBy(c => c.customerFullName.ToList());
+            ViewBag.Customer = context.Customer.OrderBy(c => c.customerLastName.ToList());
             return View("Edit");
         }
 
