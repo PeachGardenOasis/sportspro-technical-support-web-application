@@ -1,0 +1,27 @@
+﻿@model IEnumerable<Customer>
+@{
+    ViewData["Title"] = "Customer Manager";
+}
+
+<h3>Customer Manager</h3>
+<table>
+    <thead>
+        <tr>Name</tr>
+        <tr>Email</tr>
+        <tr>City</tr>
+        <tr></tr>
+        <tr></tr>
+    </thead>
+    <tbody>
+        @foreach(Customer customer in Model)
+        {
+            <tr>
+                <td>@customer.customerFullName</td>
+                <td>@customer.customerEmail</td>
+                <td>@customer.customerAddress</td>
+                <td>Temporary Edit</td>
+                <td>Temporary Delete</td>
+            </tr>
+        }
+    </tbody>
+</table>

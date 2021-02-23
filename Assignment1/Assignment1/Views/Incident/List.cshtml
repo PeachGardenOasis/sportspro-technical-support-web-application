@@ -1,0 +1,29 @@
+﻿@model IEnumerable<Incident>
+@{
+    ViewData["Title"] = "Incident Manager";
+}
+
+<h3>Incident Manager</h3>
+<table>
+    <thead>
+        <tr>Title</tr>
+        <tr>Customer</tr>
+        <tr>Product</tr>
+        <tr>Date Opened</tr>
+        <tr></tr>
+        <tr></tr>
+    </thead>
+    <tbody>
+        @foreach(Incident incident in Model)
+        {
+            <tr>
+                <td>@incident.incidentTitle</td>
+                <td>@incident.incidentCustomer</td>
+                <td>@incident.incidentProduct</td>
+                <td>@incident.dateOpened</td>
+                <td>Temporary Edit</td>
+                <td>Temporary Delete</td>
+            </tr>
+        }
+    </tbody>
+</table>

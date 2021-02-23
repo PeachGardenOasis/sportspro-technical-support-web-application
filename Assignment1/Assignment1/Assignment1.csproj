@@ -14,9 +14,4 @@
     </PackageReference>
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Views\Customer\" />
-    <Folder Include="Views\Technician\" />
-  </ItemGroup>
-
 </Project>

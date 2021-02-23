@@ -1,0 +1,27 @@
+﻿@model IEnumerable<Technician>
+@{
+    ViewData["Title"] = "Technician Manager";
+}
+
+<h3>Product Manager</h3>
+<table>
+    <thead>
+        <tr>Name</tr>
+        <tr>Email</tr>
+        <tr>Phone</tr>
+        <tr></tr>
+        <tr></tr>
+    </thead>
+    <tbody>
+        @foreach(Technician technician in Model)
+        {
+            <tr>
+                <td>@technician.technicianFullName</td>
+                <td>@technician.technicianEmail</td>
+                <td>@technician.technicianPhone</td>
+                <td>Temporary Edit</td>
+                <td>Temporary Delete</td>
+            </tr>
+        }
+    </tbody>
+</table>
