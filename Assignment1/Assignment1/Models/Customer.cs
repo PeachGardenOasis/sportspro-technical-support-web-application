@@ -21,14 +21,13 @@ namespace Assignment1.Models
         [Required(ErrorMessage = "Please enter a valid Customer Postal Code")] 
         public string customerPostalCode { get; set; }
         
-        public string customerCountry { get; set; } // no validation needed? cus its a drop down list selected by user
+        public string customerCountry { get; set; } // no validation needed? cus its a drop down list selected by user in add customer page
 
         public string customerEmail { get; set; } // The Email and Phone fields are optional.
         // All other fields are required.
 
         public string customerPhone { get; set; } 
 
-        public DateTime DateAdded { get; set; }
 
         public string Slug => customerFirstName?.Replace(' ', '-').ToLower() // slug to add customer first and last name?
             + "-" + customerLastName?.Replace(' ', '-').ToLower();
