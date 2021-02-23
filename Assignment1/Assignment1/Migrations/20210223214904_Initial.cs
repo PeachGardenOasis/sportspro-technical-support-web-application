@@ -81,7 +81,7 @@ namespace Assignment1.Migrations
                 columns: new[] { "customerId", "customerCity", "customerCountry", "customerEmail", "customerFirstName", "customerLastName", "customerPhone", "customerPostalCode", "customerState" },
                 values: new object[,]
                 {
-                    { 1, "San Francisco", " ", "Kanthoni@pge.com", "Kaitlyn", "Anthoni", " ", " ", " " },
+                    { 1, "San Francisco", " ", "kanthoni@pge.com", "Kaitlyn", "Anthoni", " ", " ", " " },
                     { 2, "Washington", " ", "ania@mma.nidc.com", "Ana", "Irvin", " ", " ", " " },
                     { 3, "Mission Viejo", " ", "  ", "Gonzalo", "Keeton", " ", " ", " " },
                     { 4, "Sacramento", " ", "amauro@yahoo.org", "Anton", "Mauro", " ", " ", " " },
@@ -98,7 +98,7 @@ namespace Assignment1.Migrations
                     { 1, "Kendall Mayte", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2020, 1, 8, 0, 0, 0, 0, DateTimeKind.Unspecified), " ", "Draft Manager 1.0", "Could not install" },
                     { 2, "Gonzoalo Keeton", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2020, 1, 8, 0, 0, 0, 0, DateTimeKind.Unspecified), " ", "Tournament Master 1.0", "Could not install" },
                     { 3, "Ania Irvin", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2020, 1, 9, 0, 0, 0, 0, DateTimeKind.Unspecified), " ", "League Scheduler Deluxe 1.0", "Error importing data" },
-                    { 4, "Ania Irvin", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2020, 1, 10, 0, 0, 0, 0, DateTimeKind.Unspecified), " ", "League Scheduler 1.0", "Error launching data" }
+                    { 4, "Kendall Mayte", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2020, 1, 10, 0, 0, 0, 0, DateTimeKind.Unspecified), " ", "League Scheduler 1.0", "Error launching program" }
                 });
 
             migrationBuilder.InsertData(
@@ -106,13 +106,13 @@ namespace Assignment1.Migrations
                 columns: new[] { "productId", "productCode", "productName", "productPrice", "productReleaseDate" },
                 values: new object[,]
                 {
-                    { 7, "DRAFT20", "Draft Manager 2.0", 5.9900000000000002, new DateTime(2015, 7, 15, 0, 0, 0, 0, DateTimeKind.Unspecified) },
-                    { 6, "TRNY20", "Tournament Master 2.0", 5.9900000000000002, new DateTime(2015, 2, 15, 0, 0, 0, 0, DateTimeKind.Unspecified) },
+                    { 7, "DRAFT20", "Draft Manager 2.0", 5.9900000000000002, new DateTime(2019, 7, 15, 0, 0, 0, 0, DateTimeKind.Unspecified) },
+                    { 6, "TRNY20", "Tournament Master 2.0", 5.9900000000000002, new DateTime(2018, 2, 15, 0, 0, 0, 0, DateTimeKind.Unspecified) },
                     { 5, "TEAM10", "Team Manager 1.0", 4.9900000000000002, new DateTime(2017, 5, 1, 0, 0, 0, 0, DateTimeKind.Unspecified) },
                     { 1, "TRNY10", "Tournament Master 1.0", 4.9900000000000002, new DateTime(2015, 12, 1, 0, 0, 0, 0, DateTimeKind.Unspecified) },
                     { 3, "LEAGD10", "League Scheduler Deluxe 1.0", 7.9900000000000002, new DateTime(2016, 8, 1, 0, 0, 0, 0, DateTimeKind.Unspecified) },
                     { 2, "LEAG10", "League Scheduler 1.0", 4.9900000000000002, new DateTime(2016, 5, 1, 0, 0, 0, 0, DateTimeKind.Unspecified) },
-                    { 4, "DRAFT10", "Draft Maanger 1.0", 4.9900000000000002, new DateTime(2017, 2, 1, 0, 0, 0, 0, DateTimeKind.Unspecified) }
+                    { 4, "DRAFT10", "Draft Manager 1.0", 4.9900000000000002, new DateTime(2017, 2, 1, 0, 0, 0, 0, DateTimeKind.Unspecified) }
                 });
 
             migrationBuilder.InsertData(

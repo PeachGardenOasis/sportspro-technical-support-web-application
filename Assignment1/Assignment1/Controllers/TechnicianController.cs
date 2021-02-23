@@ -18,7 +18,8 @@ namespace Assignment1.Controllers
 
         public IActionResult List()
         {
-            var technican = context.Technician;
+            var technican = context.Technician
+                .OrderBy(c => c.technicianFullName).ToList();
             return View(technican);
         }
 
@@ -28,7 +29,7 @@ namespace Assignment1.Controllers
             // TO DO
             ViewBag.Action = "Add";
             ViewBag.Technician = context.Technician.OrderBy(c => c.technicianFullName.ToList());
-            return View("Edit", new Technician()); // makes new form from Technician template
+            return View("Edit", new Technician()); // // forward to edit view page and an empty value contact page
         }
 
         [HttpGet]
@@ -58,15 +59,22 @@ namespace Assignment1.Controllers
             {
                 if (action == "Add")
                 {
-                    
+                    context.Technician.Add(technician);
+
                 }
+                else
+                {
+                    context.Technician.Update(technician);
+                }
+                context.SaveChanges();
+                return RedirectToAction("Index", "Home"); // return home
             }
-            else
+            else //if Model state is not valid
             {
-                ViewBag.Action = "Edit";
+                ViewBag.Action = action;
                 ViewBag.Technician = context.Technician.OrderBy(c => c.technicianFullName.ToList());
             }
-            return View();
+            return View(technician);
         }
 
         [HttpPost]

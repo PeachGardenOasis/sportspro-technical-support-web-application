@@ -51,7 +51,7 @@ namespace Assignment1.Models
                 {
                     productId = 4,
                     productCode = "DRAFT10",
-                    productName = "Draft Maanger 1.0",
+                    productName = "Draft Manager 1.0",
                     productPrice = 4.99,
                     productReleaseDate = new DateTime(2017, 2, 1)
                 }, new Product
@@ -67,14 +67,14 @@ namespace Assignment1.Models
                     productCode = "TRNY20",
                     productName = "Tournament Master 2.0",
                     productPrice = 5.99,
-                    productReleaseDate = new DateTime(2015, 2, 15)
+                    productReleaseDate = new DateTime(2018, 2, 15)
                 }, new Product
                 {
                     productId = 7,
                     productCode = "DRAFT20",
                     productName = "Draft Manager 2.0",
                     productPrice = 5.99,
-                    productReleaseDate = new DateTime(2015, 7, 15),
+                    productReleaseDate = new DateTime(2019, 7, 15),
                 }
                 );
             modelBuilder.Entity<Technician>().HasData(
@@ -122,7 +122,7 @@ namespace Assignment1.Models
                     customerFirstName = "Kaitlyn",
                     customerLastName = "Anthoni",
 
-                    customerEmail = "Kanthoni@pge.com",
+                    customerEmail = "kanthoni@pge.com",
                     customerCity = "San Francisco",
                     customerState = " ",
                     customerPostalCode = " ",
@@ -239,8 +239,8 @@ namespace Assignment1.Models
                 new Incident
                 {
                     incidentId = 4,
-                    incidentTitle = "Error launching data",
-                    incidentCustomer = "Ania Irvin",
+                    incidentTitle = "Error launching program",
+                    incidentCustomer = "Kendall Mayte",
                     incidentProduct = "League Scheduler 1.0",
                     incidentDateOpened = new DateTime(2020, 1, 10),
                     incidentDateClosed = new DateTime(),

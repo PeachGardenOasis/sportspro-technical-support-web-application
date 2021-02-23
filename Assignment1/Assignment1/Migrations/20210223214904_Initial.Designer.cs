@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Assignment1.Migrations
 {
     [DbContext(typeof(IncidentContext))]
-    [Migration("20210223210741_Initial")]
+    [Migration("20210223214904_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -67,7 +67,7 @@ namespace Assignment1.Migrations
                             customerId = 1,
                             customerCity = "San Francisco",
                             customerCountry = " ",
-                            customerEmail = "Kanthoni@pge.com",
+                            customerEmail = "kanthoni@pge.com",
                             customerFirstName = "Kaitlyn",
                             customerLastName = "Anthoni",
                             customerPhone = " ",
@@ -215,12 +215,12 @@ namespace Assignment1.Migrations
                         new
                         {
                             incidentId = 4,
-                            incidentCustomer = "Ania Irvin",
+                            incidentCustomer = "Kendall Mayte",
                             incidentDateClosed = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             incidentDateOpened = new DateTime(2020, 1, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             incidentDescription = " ",
                             incidentProduct = "League Scheduler 1.0",
-                            incidentTitle = "Error launching data"
+                            incidentTitle = "Error launching program"
                         });
                 });
 
@@ -278,7 +278,7 @@ namespace Assignment1.Migrations
                         {
                             productId = 4,
                             productCode = "DRAFT10",
-                            productName = "Draft Maanger 1.0",
+                            productName = "Draft Manager 1.0",
                             productPrice = 4.9900000000000002,
                             productReleaseDate = new DateTime(2017, 2, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
@@ -296,7 +296,7 @@ namespace Assignment1.Migrations
                             productCode = "TRNY20",
                             productName = "Tournament Master 2.0",
                             productPrice = 5.9900000000000002,
-                            productReleaseDate = new DateTime(2015, 2, 15, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                            productReleaseDate = new DateTime(2018, 2, 15, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
@@ -304,7 +304,7 @@ namespace Assignment1.Migrations
                             productCode = "DRAFT20",
                             productName = "Draft Manager 2.0",
                             productPrice = 5.9900000000000002,
-                            productReleaseDate = new DateTime(2015, 7, 15, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                            productReleaseDate = new DateTime(2019, 7, 15, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         });
                 });
 
