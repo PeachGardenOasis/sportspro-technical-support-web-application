@@ -12,14 +12,14 @@ namespace Assignment1.Controllers
         private IncidentContext context { get; set; }
 
         public TechnicianController(IncidentContext ctx)
-        {
+        { // access to dependency injection that gives us the database
             context = ctx;
         }
 
         public IActionResult List()
         {
-            var technican = context.Technician
-                .OrderBy(c => c.technicianFullName).ToList();
+            var technican = context.Technician;
+              
             return View(technican);
         }
 
@@ -44,7 +44,7 @@ namespace Assignment1.Controllers
         }
 
         [HttpGet]
-        public IActionResult Delete()
+        public IActionResult Delete(int id)
         {
             var technician = context.Technician;
             return View(technician);
