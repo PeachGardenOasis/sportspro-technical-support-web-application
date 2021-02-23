@@ -28,7 +28,10 @@ namespace Assignment1.Models
 
         public string customerPhone { get; set; } 
 
-        public DateTime DateAdded { get; set; } 
-        
+        public DateTime DateAdded { get; set; }
+
+        public string Slug => customerFirstName?.Replace(' ', '-').ToLower() // slug to add customer first and last name?
+            + "-" + customerLastName?.Replace(' ', '-').ToLower();
+
     }
 }

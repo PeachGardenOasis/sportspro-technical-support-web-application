@@ -15,6 +15,6 @@ namespace Assignment1.Models
         [Required(ErrorMessage = "Please enter a valid Product Price")]
         public double productPrice { get; set; }
 
-        public DateTime releaseDate { get; set; }
+        public DateTime productReleaseDate { get; set; }
     }
 }
