@@ -21,9 +21,20 @@
                 <td>@product.productName</td>
                 <td>@product.productPrice</td>
                 <td>@product.productReleaseDate</td>
-                <td>Temporary Edit</td>
-                <td>Temporary Delete</td>
+                <td>
+                    <form>
+                        <button type="submit" asp-action="Edit" asp-controller="Product" asp-route-id="@product.productId">Edit</button>
+                    </form>
+                </td>
+                <td>
+                    <form>
+                        <button type="submit">Delete</button>
+                    </form>
+                </td>
             </tr>
         }
     </tbody>
 </table>
+<form>
+    <button type="submit" asp-action="Add" asp-controller="Product">Add Product</button>
+</form>

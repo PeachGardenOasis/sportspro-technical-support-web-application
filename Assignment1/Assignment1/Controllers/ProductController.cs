@@ -29,13 +29,17 @@ namespace Assignment1.Controllers
             // TO DO
             ViewBag.Action = "Add";
             ViewBag.Product = context.Product.OrderBy(c => c.productName.ToList());
-            return View("Edit");
+            return View("Edit", new Product());
         }
 
         [HttpGet]
-        public IActionResult Edit()
+        public IActionResult Edit(int id)
         {
-            return View();
+            ViewBag.Action = "Edit";
+
+            var product = context.Product
+                .FirstOrDefault(context => context.productId == id);
+            return View(product);
         }
 
         [HttpGet]

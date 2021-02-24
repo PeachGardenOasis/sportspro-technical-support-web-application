@@ -190,3 +190,9 @@ C:\Users\simon\Documents\`School\`T127 SEM 4\[C#] Web Application Development\as
 C:\Users\simon\Documents\`School\`T127 SEM 4\[C#] Web Application Development\assignments\Assignment1\Assignment1\Assignment1\obj\Debug\netcoreapp3.1\Razor\Views\Incident\List.cshtml.g.cs
 C:\Users\simon\Documents\`School\`T127 SEM 4\[C#] Web Application Development\assignments\Assignment1\Assignment1\Assignment1\obj\Debug\netcoreapp3.1\Razor\Views\Technician\Edit.cshtml.g.cs
 C:\Users\simon\Documents\`School\`T127 SEM 4\[C#] Web Application Development\assignments\Assignment1\Assignment1\Assignment1\obj\Debug\netcoreapp3.1\Razor\Views\Technician\List.cshtml.g.cs
+D:\School\Semester 4\COMP2139\Assignment\Assignment1\Assignment1\Assignment1\obj\Debug\netcoreapp3.1\Razor\Views\Customer\Edit.cshtml.g.cs
+D:\School\Semester 4\COMP2139\Assignment\Assignment1\Assignment1\Assignment1\obj\Debug\netcoreapp3.1\Razor\Views\Customer\List.cshtml.g.cs
+D:\School\Semester 4\COMP2139\Assignment\Assignment1\Assignment1\Assignment1\obj\Debug\netcoreapp3.1\Razor\Views\Incident\Edit.cshtml.g.cs
+D:\School\Semester 4\COMP2139\Assignment\Assignment1\Assignment1\Assignment1\obj\Debug\netcoreapp3.1\Razor\Views\Incident\List.cshtml.g.cs
+D:\School\Semester 4\COMP2139\Assignment\Assignment1\Assignment1\Assignment1\obj\Debug\netcoreapp3.1\Razor\Views\Technician\Edit.cshtml.g.cs
+D:\School\Semester 4\COMP2139\Assignment\Assignment1\Assignment1\Assignment1\obj\Debug\netcoreapp3.1\Razor\Views\Technician\List.cshtml.g.cs

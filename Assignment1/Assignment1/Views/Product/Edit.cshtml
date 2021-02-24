@@ -1,1 +1,7 @@
-﻿<h3>Product Add/Edit Page</h3>
+﻿@model IEnumerable<Product>
+<h3>@ViewBag.Action Product</h3>
+
+@foreach(Product product in Model)
+{
+    <p>@product.productId</p>
+}
