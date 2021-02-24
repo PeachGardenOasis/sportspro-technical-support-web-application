@@ -1,7 +1,8 @@
-﻿@model IEnumerable<Product>
+﻿@model Product
 <h3>@ViewBag.Action Product</h3>
 
-@foreach(Product product in Model)
-{
-    <p>@product.productId</p>
-}
+
+
+    <p>
+        @Html.DisplayFor(model => model.productId)
+    </p>
