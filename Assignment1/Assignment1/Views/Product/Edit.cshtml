@@ -1,8 +1,48 @@
 ﻿@model Product
 <h3>@ViewBag.Action Product</h3>
 
-
-
-    <p>
-        @Html.DisplayFor(model => model.productId)
-    </p>
+@if (ViewBag.Action == "Add")
+{
+    <form>
+        <label for="productCode">Code</label>
+        <br />
+        <input type="text" id="productCode" name="productCode" />
+        <br />
+        <label for="productName">Name</label>
+        <br />
+        <input type="text" id="productName" name="productName" />
+        <br />
+        <label for="productPrice">Yearly Price</label>
+        <br />
+        <input type="text" id="productPrice" name="productPrice" />
+        <br />
+        <label for="productReleaseDate">Release Date</label>
+        <br />
+        <input type="text" id="productReleaseDate" name="productReleaseDate" value="@DateTime.Now" />
+        <br /><br />
+        <button type="submit">Save</button>
+        <button type="submit">Cancel</button>
+    </form>
+}
+@if (ViewBag.Action == "Edit")
+{
+    <label for="productCode">Code</label>
+    <br />
+    <input type="text" id="productCode" name="productCode" value="@Html.DisplayFor(model => model.productCode)" />
+    <br />
+    <label for="productName">Name</label>
+    <br />
+    <input type="text" id="productName" name="productName" value="@Html.DisplayFor(model => model.productName)" />
+    <br />
+    <label for="productPrice">Yearly Price</label>
+    <br />
+    <input type="text" id="productPrice" name="productPrice" value="@Html.DisplayFor(model => model.productPrice)" />
+    <br />
+    <label for="productReleaseDate">Release Date</label>
+    <br />
+    <input type="text" id="productReleaseDate" name="productReleaseDate" value="@Html.DisplayFor(model => model.productReleaseDate)" />
+    <br />
+    <br />
+    <button type="submit">Save</button>
+    <button type="submit">Cancel</button>
+}
