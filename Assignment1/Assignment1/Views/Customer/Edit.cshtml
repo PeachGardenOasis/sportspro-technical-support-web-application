@@ -3,88 +3,83 @@
 
 @if (ViewBag.Action == "Add")
 {
-<form>
+<form asp-action="Edit" asp-controller="Customer" method="post">
+    <input type="hidden" id="customerId" name="customerId" asp-for="customerId" value="0" />
     <label for="customerFirstName">First Name</label>
-    <br />
-    <input type="text" id="customerFirstName" name="customerFirstName" />
+    <input type="text" id="customerFirstName" name="customerFirstName" asp-for="customerFirstName" />
     <br />
     <label for="customerLastName">Last Name</label>
-    <br />
-    <input type="text" id="customerLastName" name="customerLastName" />
+    <input type="text" id="customerLastName" name="customerLastName" asp-for="customerLastName" />
     <br />
     <label for="customerAddress">Address</label>
-    <br />
-    <input type="text" id="customerAddress" name="customerAddress" />
+    <input type="text" id="customerAddress" name="customerAddress" asp-for="customerAddress" />
     <br />
     <label for="customerCity">City</label>
-    <br />
-    <input type="text" id="customerCity" name="customerCity" />
+    <input type="text" id="customerCity" name="customerCity" asp-for="customerCity" />
     <br />
     <label for="customerState">State</label>
+    <input type="text" id="customerState" name="customerState" asp-for="customerState" />
     <br />
-    <input type="text" id="customerState" name="customerState" />
+    <label for="customerPostalCode">Postal Code</label>
+    <input type="text" id="customerPostalCode" name="customerPostalCode" asp-for="customerPostalCode" />
     <br />
-    <label for="customerCountry">Select a country...</label>
-    <select id="customerCountry" name="customerCountry">
-        <option value="Canada">Canada</option>
-        <option value="USA">USA</option>
-        <option value="United Kingdom">United Kingdom</option>
-        <option value="France">France</option>
+    <label for="customerCountryId">Country</label>
+    <select id="customerCountryId" name="customerCountryId" asp-for="customerCountryId">
+        <option selected="selected" value="">Select a country...</option>
+        @foreach (Country country in ViewBag.Country)
+        {
+            <option value="@country.countryId">@country.countryName</option>
+        }
     </select>
     <br />
     <label for="customerEmail">Email</label>
-    <br />
-    <input type="text" id="customerEmail" name="customerEmail" />
+    <input type="text" id="customerEmail" name="customerEmail" asp-for="customerEmail" />
     <br />
     <label for="customerPhone">Phone</label>
-    <br />
-    <input type="text" id="customerPhone" name="customerPhone" />
+    <input type="text" id="customerPhone" name="customerPhone" asp-for="customerPhone" />
     <br /><br />
-    <button type="submit">Save</button>
+    <input type="submit" value="Save" />
     <button type="button" onclick="location.href='@Url.Action("List", "Customer")'">Cancel</button>
 </form>
 }
 @if (ViewBag.Action == "Edit")
 {
-<form>
+<form asp-action="Edit" asp-controller="Customer" method="post">
+    <input type="hidden" id="customerId" name="customerId" asp-for="customerId" value="@Model.customerId" />
     <label for="customerFirstName">First Name</label>
-    <br />
-    <input type="text" id="customerFirstName" name="customerFirstName" value="@Html.DisplayFor(model => model.customerFirstName)" />
+    <input type="text" id="customerFirstName" name="customerFirstName" value="@Model.customerFirstName" asp-for="customerFirstName" />
     <br />
     <label for="customerLastName">Last Name</label>
-    <br />
-    <input type="text" id="customerLastName" name="customerLastName" value="@Html.DisplayFor(model => model.customerLastName)" />
+    <input type="text" id="customerLastName" name="customerLastName" value="@Model.customerLastName" asp-for="customerLastName" />
     <br />
     <label for="customerAddress">Address</label>
-    <br />
-    <input type="text" id="customerAddress" name="customerAddress" value="@Html.DisplayFor(model => model.customerAddress)" />
+    <input type="text" id="customerAddress" name="customerAddress" value="@Model.customerAddress" asp-for="customerAddress" />
     <br />
     <label for="customerCity">City</label>
-    <br />
-    <input type="text" id="customerCity" name="customerCity" value="@Html.DisplayFor(model => model.customerCity)" />
+    <input type="text" id="customerCity" name="customerCity" value="@Model.customerCity" asp-for="customerCity" />
     <br />
     <label for="customerState">State</label>
-    <br />
-    <input type="text" id="customerState" name="customerState" value="@Html.DisplayFor(model => model.customerState)" />
+    <input type="text" id="customerState" name="customerState" value="@Model.customerState" asp-for="customerState" />
     <br />
     <label for="customerPostalCode">Postal Code</label>
+    <input type="text" id="customerPostalCode" name="customerPostalCode" asp-for="customerPostalCode" />
     <br />
-    <input type="text" id="customerPostalCode" name="customerPostalCode" value="@Html.DisplayFor(model => model.customerPostalCode)" />
-    <br />
-    <label for="customerCountry">Country</label>
-    <br />
-    <input type="text" id="customerCountry" name="customerCountry" value="@Html.DisplayFor(model => model.customerCountry)" />
+    <label for="customerCountryId">Country</label>
+    <select id="customerCountryId" name="customerCountryId" asp-for="customerCountryId">
+        <option selected="selected" disabled>Select a country...</option>
+        @foreach (Country country in ViewBag.Country)
+        {
+            <option value="@country.countryId">@country.countryName</option>
+        }
+    </select>
     <br />
     <label for="customerEmail">Email</label>
-    <br />
-    <input type="text" id="customerEmail" name="customerEmail" value="@Html.DisplayFor(model => model.customerEmail)" />
+    <input type="text" id="customerEmail" name="customerEmail" value="@Model.customerEmail" asp-for="customerEmail" />
     <br />
     <label for="customerPhone">Phone</label>
-    <br />
-    <input type="text" id="customerPhone" name="customerPhone" value="@Html.DisplayFor(model => model.customerPhone)" />
-    <br />
-    <br />
-    <button type="submit">Save</button>
+    <input type="text" id="customerPhone" name="customerPhone" value="@Model.customerPhone" asp-for="customerPhone" />
+    <br /><br />
+    <input type="submit" value="Save" />
     <button type="button" onclick="location.href='@Url.Action("List", "Customer")'">Cancel</button>
 </form>
 }

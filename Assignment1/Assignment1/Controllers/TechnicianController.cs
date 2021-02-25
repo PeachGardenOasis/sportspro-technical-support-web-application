@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 
 namespace Assignment1.Controllers
 {
@@ -35,6 +36,7 @@ namespace Assignment1.Controllers
         public IActionResult Edit(int id)
         {
             ViewBag.Action = "Edit";
+            ViewBag.Country = context.Country.OrderBy(context => context.countryName).ToList();
 
             var technician = context.Technician
                 .FirstOrDefault(context => context.technicianId == id);

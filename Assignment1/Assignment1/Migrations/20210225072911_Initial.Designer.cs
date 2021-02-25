@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Assignment1.Migrations
 {
     [DbContext(typeof(IncidentContext))]
-    [Migration("20210225015824_Initial")]
+    [Migration("20210225072911_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -20,6 +20,48 @@ namespace Assignment1.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("ProductVersion", "5.0.3")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+            modelBuilder.Entity("Assignment1.Models.Country", b =>
+                {
+                    b.Property<int>("countryId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("countryName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("countryId");
+
+                    b.ToTable("Country");
+
+                    b.HasData(
+                        new
+                        {
+                            countryId = 1,
+                            countryName = "Canada"
+                        },
+                        new
+                        {
+                            countryId = 2,
+                            countryName = "United States of America"
+                        },
+                        new
+                        {
+                            countryId = 3,
+                            countryName = "United Kingdom"
+                        },
+                        new
+                        {
+                            countryId = 4,
+                            countryName = "France"
+                        },
+                        new
+                        {
+                            countryId = 5,
+                            countryName = "Mexico"
+                        });
+                });
 
             modelBuilder.Entity("Assignment1.Models.Customer", b =>
                 {
@@ -36,9 +78,8 @@ namespace Assignment1.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("customerCountry")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("customerCountryId")
+                        .HasColumnType("int");
 
                     b.Property<string>("customerEmail")
                         .HasColumnType("nvarchar(max)");
@@ -64,6 +105,8 @@ namespace Assignment1.Migrations
 
                     b.HasKey("customerId");
 
+                    b.HasIndex("customerCountryId");
+
                     b.ToTable("Customer");
 
                     b.HasData(
@@ -72,7 +115,7 @@ namespace Assignment1.Migrations
                             customerId = 1,
                             customerAddress = "100 Apple Street",
                             customerCity = "San Francisco",
-                            customerCountry = "Canada",
+                            customerCountryId = 1,
                             customerEmail = "kanthoni@pge.com",
                             customerFirstName = "Kaitlyn",
                             customerLastName = "Anthoni",
@@ -85,7 +128,7 @@ namespace Assignment1.Migrations
                             customerId = 2,
                             customerAddress = "200 Banana Street",
                             customerCity = "Washington",
-                            customerCountry = "USA",
+                            customerCountryId = 2,
                             customerEmail = "kanthoni@pge.com",
                             customerFirstName = "Ana",
                             customerLastName = "Irvin",
@@ -98,7 +141,7 @@ namespace Assignment1.Migrations
                             customerId = 3,
                             customerAddress = "300 Corn Street",
                             customerCity = "Mission Viejo",
-                            customerCountry = "USA",
+                            customerCountryId = 2,
                             customerEmail = " ",
                             customerFirstName = "Gonzalo",
                             customerLastName = "Keeton",
@@ -111,7 +154,7 @@ namespace Assignment1.Migrations
                             customerId = 4,
                             customerAddress = "400 Dingleberry Street",
                             customerCity = "Sacramento",
-                            customerCountry = "USA",
+                            customerCountryId = 2,
                             customerEmail = "amauro@yahoo.org",
                             customerFirstName = "Anton",
                             customerLastName = "Mauro",
@@ -124,7 +167,7 @@ namespace Assignment1.Migrations
                             customerId = 5,
                             customerAddress = "500 Eggfruit Street",
                             customerCity = "Fresno",
-                            customerCountry = "USA",
+                            customerCountryId = 2,
                             customerEmail = "kmayte@fresno.ca.gov",
                             customerFirstName = "Kendall",
                             customerLastName = "Mayte",
@@ -137,7 +180,7 @@ namespace Assignment1.Migrations
                             customerId = 6,
                             customerAddress = "600 Finger Lime Street",
                             customerCity = "Los Angeles",
-                            customerCountry = "USA",
+                            customerCountryId = 2,
                             customerEmail = "kenzie@mma.jobtrack.com",
                             customerFirstName = "Kenzie",
                             customerLastName = "Quinn",
@@ -150,7 +193,7 @@ namespace Assignment1.Migrations
                             customerId = 7,
                             customerAddress = "700 Grape Street",
                             customerCity = "Fresno",
-                            customerCountry = "USA",
+                            customerCountryId = 2,
                             customerEmail = "marvin@expedata.com",
                             customerFirstName = "Marvin",
                             customerLastName = "Quintin",
@@ -389,6 +432,17 @@ namespace Assignment1.Migrations
                             technicianFullName = "Jason Lee",
                             technicianPhone = "800-555-0444"
                         });
+                });
+
+            modelBuilder.Entity("Assignment1.Models.Customer", b =>
+                {
+                    b.HasOne("Assignment1.Models.Country", "customerCountry")
+                        .WithMany()
+                        .HasForeignKey("customerCountryId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("customerCountry");
                 });
 #pragma warning restore 612, 618
         }

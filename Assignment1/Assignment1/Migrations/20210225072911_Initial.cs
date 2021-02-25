@@ -8,24 +8,16 @@ namespace Assignment1.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "Customer",
+                name: "Country",
                 columns: table => new
                 {
-                    customerId = table.Column<int>(type: "int", nullable: false)
+                    countryId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    customerFirstName = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    customerLastName = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    customerAddress = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    customerCity = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    customerState = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    customerPostalCode = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    customerCountry = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    customerEmail = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    customerPhone = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    countryName = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Customer", x => x.customerId);
+                    table.PrimaryKey("PK_Country", x => x.countryId);
                 });
 
             migrationBuilder.CreateTable(
@@ -79,18 +71,43 @@ namespace Assignment1.Migrations
                     table.PrimaryKey("PK_Technician", x => x.technicianId);
                 });
 
+            migrationBuilder.CreateTable(
+                name: "Customer",
+                columns: table => new
+                {
+                    customerId = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    customerFirstName = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    customerLastName = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    customerAddress = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    customerCity = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    customerState = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    customerPostalCode = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    customerCountryId = table.Column<int>(type: "int", nullable: false),
+                    customerEmail = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    customerPhone = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Customer", x => x.customerId);
+                    table.ForeignKey(
+                        name: "FK_Customer_Country_customerCountryId",
+                        column: x => x.customerCountryId,
+                        principalTable: "Country",
+                        principalColumn: "countryId",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
             migrationBuilder.InsertData(
-                table: "Customer",
-                columns: new[] { "customerId", "customerAddress", "customerCity", "customerCountry", "customerEmail", "customerFirstName", "customerLastName", "customerPhone", "customerPostalCode", "customerState" },
+                table: "Country",
+                columns: new[] { "countryId", "countryName" },
                 values: new object[,]
                 {
-                    { 1, "100 Apple Street", "San Francisco", "Canada", "kanthoni@pge.com", "Kaitlyn", "Anthoni", "555-555-1000", "90001", "California" },
-                    { 2, "200 Banana Street", "Washington", "USA", "kanthoni@pge.com", "Ana", "Irvin", "555-555-1001", "90002", "D.C." },
-                    { 3, "300 Corn Street", "Mission Viejo", "USA", " ", "Gonzalo", "Keeton", "555-555-1002", "90003", "California" },
-                    { 4, "400 Dingleberry Street", "Sacramento", "USA", "amauro@yahoo.org", "Anton", "Mauro", "555-555-1003", "90004", "Calfiornia" },
-                    { 5, "500 Eggfruit Street", "Fresno", "USA", "kmayte@fresno.ca.gov", "Kendall", "Mayte", "555-555-1004", "90005", "California" },
-                    { 6, "600 Finger Lime Street", "Los Angeles", "USA", "kenzie@mma.jobtrack.com", "Kenzie", "Quinn", "555-555-1005", "90006", "California" },
-                    { 7, "700 Grape Street", "Fresno", "USA", "marvin@expedata.com", "Marvin", "Quintin", "555-555-1006", "90007", "California" }
+                    { 1, "Canada" },
+                    { 2, "United States of America" },
+                    { 3, "United Kingdom" },
+                    { 4, "France" },
+                    { 5, "Mexico" }
                 });
 
             migrationBuilder.InsertData(
@@ -112,9 +129,9 @@ namespace Assignment1.Migrations
                     { 7, "DRAFT20", "Draft Manager 2.0", 5.9900000000000002, new DateTime(2019, 7, 15, 0, 0, 0, 0, DateTimeKind.Unspecified) },
                     { 6, "TRNY20", "Tournament Master 2.0", 5.9900000000000002, new DateTime(2018, 2, 15, 0, 0, 0, 0, DateTimeKind.Unspecified) },
                     { 5, "TEAM10", "Team Manager 1.0", 4.9900000000000002, new DateTime(2017, 5, 1, 0, 0, 0, 0, DateTimeKind.Unspecified) },
-                    { 1, "TRNY10", "Tournament Master 1.0", 4.9900000000000002, new DateTime(2015, 12, 1, 0, 0, 0, 0, DateTimeKind.Unspecified) },
-                    { 3, "LEAGD10", "League Scheduler Deluxe 1.0", 7.9900000000000002, new DateTime(2016, 8, 1, 0, 0, 0, 0, DateTimeKind.Unspecified) },
                     { 2, "LEAG10", "League Scheduler 1.0", 4.9900000000000002, new DateTime(2016, 5, 1, 0, 0, 0, 0, DateTimeKind.Unspecified) },
+                    { 3, "LEAGD10", "League Scheduler Deluxe 1.0", 7.9900000000000002, new DateTime(2016, 8, 1, 0, 0, 0, 0, DateTimeKind.Unspecified) },
+                    { 1, "TRNY10", "Tournament Master 1.0", 4.9900000000000002, new DateTime(2015, 12, 1, 0, 0, 0, 0, DateTimeKind.Unspecified) },
                     { 4, "DRAFT10", "Draft Manager 1.0", 4.9900000000000002, new DateTime(2017, 2, 1, 0, 0, 0, 0, DateTimeKind.Unspecified) }
                 });
 
@@ -129,6 +146,25 @@ namespace Assignment1.Migrations
                     { 3, "gfiori@sportsprosoftware.com", "Gina Fiori", "800-555-0459" },
                     { 5, "jason@sportsprosoftware.com", "Jason Lee", "800-555-0444" }
                 });
+
+            migrationBuilder.InsertData(
+                table: "Customer",
+                columns: new[] { "customerId", "customerAddress", "customerCity", "customerCountryId", "customerEmail", "customerFirstName", "customerLastName", "customerPhone", "customerPostalCode", "customerState" },
+                values: new object[,]
+                {
+                    { 1, "100 Apple Street", "San Francisco", 1, "kanthoni@pge.com", "Kaitlyn", "Anthoni", "555-555-1000", "90001", "California" },
+                    { 2, "200 Banana Street", "Washington", 2, "kanthoni@pge.com", "Ana", "Irvin", "555-555-1001", "90002", "D.C." },
+                    { 3, "300 Corn Street", "Mission Viejo", 2, " ", "Gonzalo", "Keeton", "555-555-1002", "90003", "California" },
+                    { 4, "400 Dingleberry Street", "Sacramento", 2, "amauro@yahoo.org", "Anton", "Mauro", "555-555-1003", "90004", "Calfiornia" },
+                    { 5, "500 Eggfruit Street", "Fresno", 2, "kmayte@fresno.ca.gov", "Kendall", "Mayte", "555-555-1004", "90005", "California" },
+                    { 6, "600 Finger Lime Street", "Los Angeles", 2, "kenzie@mma.jobtrack.com", "Kenzie", "Quinn", "555-555-1005", "90006", "California" },
+                    { 7, "700 Grape Street", "Fresno", 2, "marvin@expedata.com", "Marvin", "Quintin", "555-555-1006", "90007", "California" }
+                });
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Customer_customerCountryId",
+                table: "Customer",
+                column: "customerCountryId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -144,6 +180,9 @@ namespace Assignment1.Migrations
 
             migrationBuilder.DropTable(
                 name: "Technician");
+
+            migrationBuilder.DropTable(
+                name: "Country");
         }
     }
 }

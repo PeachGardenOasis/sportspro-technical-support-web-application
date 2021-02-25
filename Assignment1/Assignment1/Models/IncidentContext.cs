@@ -17,8 +17,8 @@ namespace Assignment1.Models
         public DbSet<Product> Product { get; set; }
         public DbSet<Technician> Technician { get; set; }
         public DbSet<Customer> Customer { get; set; }
-
         public DbSet<Incident> Incident { get; set; }
+        public DbSet<Country> Country { get; set; }
 
         
 
@@ -115,101 +115,6 @@ namespace Assignment1.Models
                     technicianPhone = "800-555-0444",
                 }
                 );
-            modelBuilder.Entity<Customer>().HasData(
-                new Customer
-                {
-                    customerId = 1,
-                    customerFirstName = "Kaitlyn",
-                    customerLastName = "Anthoni",
-                    customerAddress = "100 Apple Street",
-                    customerCity = "San Francisco",
-                    customerState = "California",
-                    customerPostalCode = "90001",
-                    customerCountry = "Canada",
-//In the Country drop-down list, display all countries that are available from the database (add some countries to your database).
-                    customerEmail = "kanthoni@pge.com",
-                    customerPhone ="555-555-1000"
-                    
-                },
-                new Customer
-                {
-                    customerId = 2,
-                    customerFirstName = "Ana",
-                    customerLastName = "Irvin",
-                    customerAddress = "200 Banana Street",
-                    customerCity = "Washington",
-                    customerState = "D.C.",
-                    customerPostalCode = "90002",
-                    customerCountry = "USA",
-                    customerEmail = "kanthoni@pge.com",
-                    customerPhone = "555-555-1001"
-                },
-                new Customer
-                {
-                    customerId = 3,
-                    customerFirstName = "Gonzalo",
-                    customerLastName = "Keeton",
-                    customerAddress = "300 Corn Street",
-                    customerCity = "Mission Viejo",
-                    customerState = "California",
-                    customerPostalCode = "90003",
-                    customerCountry = "USA",
-                    customerEmail = " ",// wireframe shows it to be blank
-                    customerPhone = "555-555-1002"
-                },
-                new Customer
-                {
-                    customerId = 4,
-                    customerFirstName = "Anton",
-                    customerLastName = "Mauro",
-                    customerAddress = "400 Dingleberry Street",
-                    customerCity = "Sacramento",
-                    customerState = "Calfiornia",
-                    customerPostalCode = "90004",
-                    customerCountry = "USA",
-                    customerEmail = "amauro@yahoo.org",
-                    customerPhone = "555-555-1003"
-                },
-                new Customer
-                {
-                    customerId = 5,
-                    customerFirstName = "Kendall",
-                    customerLastName = "Mayte",
-                    customerAddress = "500 Eggfruit Street",
-                    customerCity = "Fresno",
-                    customerState = "California",
-                    customerPostalCode = "90005",
-                    customerCountry = "USA",
-                    customerEmail = "kmayte@fresno.ca.gov",
-                    customerPhone = "555-555-1004"
-                },
-                new Customer
-                {
-                    customerId = 6,
-                    customerFirstName = "Kenzie",
-                    customerLastName = "Quinn",
-                    customerAddress = "600 Finger Lime Street",
-                    customerCity = "Los Angeles",
-                    customerState = "California",
-                    customerPostalCode = "90006",
-                    customerCountry = "USA",
-                    customerEmail = "kenzie@mma.jobtrack.com",
-                    customerPhone = "555-555-1005"
-                },
-                new Customer
-                {
-                    customerId = 7,
-                    customerFirstName = "Marvin",
-                    customerLastName = "Quintin",
-                    customerAddress = "700 Grape Street",
-                    customerCity = "Fresno",
-                    customerState = "California",
-                    customerPostalCode = "90007",
-                    customerCountry = "USA", 
-                    customerEmail = "marvin@expedata.com",
-                    customerPhone = "555-555-1006"
-                }
-                );
 
             // incidents
             modelBuilder.Entity<Incident>().HasData(
@@ -258,6 +163,128 @@ namespace Assignment1.Models
                     incidentDateClosed = new DateTime(),
                     incidentDescription = " ",
                     incidentTechnician = "Gunter Wendt",
+                }
+                );
+            modelBuilder.Entity<Country>().HasData(
+                    new Country
+                    {
+                        countryId = 1,
+                        countryName = "Canada"
+                    },
+                    new Country
+                    {
+                        countryId = 2,
+                        countryName = "United States of America"
+                    },
+                    new Country
+                    {
+                        countryId = 3,
+                        countryName = "United Kingdom"
+                    },
+                    new Country
+                    {
+                        countryId = 4,
+                        countryName = "France"
+                    },
+                    new Country
+                    {
+                        countryId = 5,
+                        countryName = "Mexico"
+                    }
+                );
+
+            modelBuilder.Entity<Customer>().HasData(
+                new Customer
+                {
+                    customerId = 1,
+                    customerFirstName = "Kaitlyn",
+                    customerLastName = "Anthoni",
+                    customerAddress = "100 Apple Street",
+                    customerCity = "San Francisco",
+                    customerState = "California",
+                    customerPostalCode = "90001",
+                    customerCountryId = 1,
+                    customerEmail = "kanthoni@pge.com",
+                    customerPhone = "555-555-1000"
+
+                },
+                new Customer
+                {
+                    customerId = 2,
+                    customerFirstName = "Ana",
+                    customerLastName = "Irvin",
+                    customerAddress = "200 Banana Street",
+                    customerCity = "Washington",
+                    customerState = "D.C.",
+                    customerPostalCode = "90002",
+                    customerCountryId = 2,
+                    customerEmail = "kanthoni@pge.com",
+                    customerPhone = "555-555-1001"
+                },
+                new Customer
+                {
+                    customerId = 3,
+                    customerFirstName = "Gonzalo",
+                    customerLastName = "Keeton",
+                    customerAddress = "300 Corn Street",
+                    customerCity = "Mission Viejo",
+                    customerState = "California",
+                    customerPostalCode = "90003",
+                    customerCountryId = 2,
+                    customerEmail = " ",// wireframe shows it to be blank
+                    customerPhone = "555-555-1002"
+                },
+                new Customer
+                {
+                    customerId = 4,
+                    customerFirstName = "Anton",
+                    customerLastName = "Mauro",
+                    customerAddress = "400 Dingleberry Street",
+                    customerCity = "Sacramento",
+                    customerState = "Calfiornia",
+                    customerPostalCode = "90004",
+                    customerCountryId = 2,
+                    customerEmail = "amauro@yahoo.org",
+                    customerPhone = "555-555-1003"
+                },
+                new Customer
+                {
+                    customerId = 5,
+                    customerFirstName = "Kendall",
+                    customerLastName = "Mayte",
+                    customerAddress = "500 Eggfruit Street",
+                    customerCity = "Fresno",
+                    customerState = "California",
+                    customerPostalCode = "90005",
+                    customerCountryId = 2,
+                    customerEmail = "kmayte@fresno.ca.gov",
+                    customerPhone = "555-555-1004"
+                },
+                new Customer
+                {
+                    customerId = 6,
+                    customerFirstName = "Kenzie",
+                    customerLastName = "Quinn",
+                    customerAddress = "600 Finger Lime Street",
+                    customerCity = "Los Angeles",
+                    customerState = "California",
+                    customerPostalCode = "90006",
+                    customerCountryId = 2,
+                    customerEmail = "kenzie@mma.jobtrack.com",
+                    customerPhone = "555-555-1005"
+                },
+                new Customer
+                {
+                    customerId = 7,
+                    customerFirstName = "Marvin",
+                    customerLastName = "Quintin",
+                    customerAddress = "700 Grape Street",
+                    customerCity = "Fresno",
+                    customerState = "California",
+                    customerPostalCode = "90007",
+                    customerCountryId = 2, 
+                    customerEmail = "marvin@expedata.com",
+                    customerPhone = "555-555-1006"
                 }
                 );
         }
