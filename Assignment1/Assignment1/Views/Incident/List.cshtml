@@ -14,16 +14,27 @@
         <tr></tr>
     </thead>
     <tbody>
-        @foreach(Incident incident in Model)
+        @foreach (Incident incident in Model)
         {
             <tr>
                 <td>@incident.incidentTitle</td>
                 <td>@incident.incidentCustomer</td>
                 <td>@incident.incidentProduct</td>
                 <td>@incident.incidentDateOpened</td>
-                <td>Temporary Edit</td>
-                <td>Temporary Delete</td>
+                <td>
+                    <form>
+                        <button type="submit" asp-action="Edit" asp-controller="Incident" asp-route-id="@incident.incidentId">Edit</button>
+                    </form>
+                </td>
+                <td>
+                    <form>
+                        <button type="submit">Delete</button>
+                    </form>
+                </td>
             </tr>
         }
     </tbody>
 </table>
+<form>
+    <button type="submit" asp-action="Add" asp-controller="Incident">Add Incident</button>
+</form>

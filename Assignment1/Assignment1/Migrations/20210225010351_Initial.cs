@@ -15,10 +15,11 @@ namespace Assignment1.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     customerFirstName = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     customerLastName = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    customerAddress = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     customerCity = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     customerState = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     customerPostalCode = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    customerCountry = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    customerCountry = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     customerEmail = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     customerPhone = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
@@ -37,8 +38,10 @@ namespace Assignment1.Migrations
                     incidentDescription = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     incidentCustomer = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     incidentProduct = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    incidentTechnician = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     incidentDateOpened = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    incidentDateClosed = table.Column<DateTime>(type: "datetime2", nullable: false)
+                    incidentDateClosed = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    technicianId = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -78,27 +81,27 @@ namespace Assignment1.Migrations
 
             migrationBuilder.InsertData(
                 table: "Customer",
-                columns: new[] { "customerId", "customerCity", "customerCountry", "customerEmail", "customerFirstName", "customerLastName", "customerPhone", "customerPostalCode", "customerState" },
+                columns: new[] { "customerId", "customerAddress", "customerCity", "customerCountry", "customerEmail", "customerFirstName", "customerLastName", "customerPhone", "customerPostalCode", "customerState" },
                 values: new object[,]
                 {
-                    { 1, "San Francisco", " ", "kanthoni@pge.com", "Kaitlyn", "Anthoni", " ", " ", " " },
-                    { 2, "Washington", " ", "ania@mma.nidc.com", "Ana", "Irvin", " ", " ", " " },
-                    { 3, "Mission Viejo", " ", "  ", "Gonzalo", "Keeton", " ", " ", " " },
-                    { 4, "Sacramento", " ", "amauro@yahoo.org", "Anton", "Mauro", " ", " ", " " },
-                    { 5, "Fresno", " ", "kmayte@fresco.ca.gov", "Kendall", "Mayte", " ", " ", " " },
-                    { 6, "Los Angeles", " ", "kenzie@mma.jobtrak.com", "Kenzie", "Quinn", " ", " ", " " },
-                    { 7, "Fresno", " ", "marvin@expedata.com", "Marvin", "Quintin", " ", " ", " " }
+                    { 1, "100 Apple Street", "San Francisco", "Canada", "kanthoni@pge.com", "Kaitlyn", "Anthoni", "555-555-1000", "90001", "California" },
+                    { 2, "200 Banana Street", "Washington", "USA", "kanthoni@pge.com", "Ana", "Irvin", "555-555-1001", "90002", "D.C." },
+                    { 3, "300 Corn Street", "Mission Viejo", "USA", " ", "Gonzalo", "Keeton", "555-555-1002", "90003", "California" },
+                    { 4, "400 Dingleberry Street", "Sacramento", "USA", "amauro@yahoo.org", "Anton", "Mauro", "555-555-1003", "90004", "Calfiornia" },
+                    { 5, "500 Eggfruit Street", "Fresno", "USA", "kmayte@fresno.ca.gov", "Kendall", "Mayte", "555-555-1004", "90005", "California" },
+                    { 6, "600 Finger Lime Street", "Los Angeles", "USA", "kenzie@mma.jobtrack.com", "Kenzie", "Quinn", "555-555-1005", "90006", "California" },
+                    { 7, "700 Grape Street", "Fresno", "USA", "marvin@expedata.com", "Marvin", "Quintin", "555-555-1006", "90007", "California" }
                 });
 
             migrationBuilder.InsertData(
                 table: "Incident",
-                columns: new[] { "incidentId", "incidentCustomer", "incidentDateClosed", "incidentDateOpened", "incidentDescription", "incidentProduct", "incidentTitle" },
+                columns: new[] { "incidentId", "incidentCustomer", "incidentDateClosed", "incidentDateOpened", "incidentDescription", "incidentProduct", "incidentTechnician", "incidentTitle", "technicianId" },
                 values: new object[,]
                 {
-                    { 1, "Kendall Mayte", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2020, 1, 8, 0, 0, 0, 0, DateTimeKind.Unspecified), " ", "Draft Manager 1.0", "Could not install" },
-                    { 2, "Gonzoalo Keeton", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2020, 1, 8, 0, 0, 0, 0, DateTimeKind.Unspecified), " ", "Tournament Master 1.0", "Could not install" },
-                    { 3, "Ania Irvin", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2020, 1, 9, 0, 0, 0, 0, DateTimeKind.Unspecified), " ", "League Scheduler Deluxe 1.0", "Error importing data" },
-                    { 4, "Kendall Mayte", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2020, 1, 10, 0, 0, 0, 0, DateTimeKind.Unspecified), " ", "League Scheduler 1.0", "Error launching program" }
+                    { 1, "Kendall Mayte", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2020, 1, 8, 0, 0, 0, 0, DateTimeKind.Unspecified), " ", "Draft Manager 1.0", "Alison Diaz", "Could not install", null },
+                    { 2, "Gonzoalo Keeton", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2020, 1, 8, 0, 0, 0, 0, DateTimeKind.Unspecified), " ", "Tournament Master 1.0", "Andrew Wilson", "Could not install", null },
+                    { 3, "Ania Irvin", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2020, 1, 9, 0, 0, 0, 0, DateTimeKind.Unspecified), " ", "League Scheduler Deluxe 1.0", "Gina Fiori", "Error importing data", null },
+                    { 4, "Kendall Mayte", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2020, 1, 10, 0, 0, 0, 0, DateTimeKind.Unspecified), " ", "League Scheduler 1.0", "Gunter Wendt", "Error launching program", null }
                 });
 
             migrationBuilder.InsertData(

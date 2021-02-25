@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Assignment1.Migrations
 {
     [DbContext(typeof(IncidentContext))]
-    [Migration("20210224011148_Initial")]
+    [Migration("20210225010351_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -28,11 +28,16 @@ namespace Assignment1.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<string>("customerAddress")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("customerCity")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("customerCountry")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("customerEmail")
@@ -65,86 +70,93 @@ namespace Assignment1.Migrations
                         new
                         {
                             customerId = 1,
+                            customerAddress = "100 Apple Street",
                             customerCity = "San Francisco",
-                            customerCountry = " ",
+                            customerCountry = "Canada",
                             customerEmail = "kanthoni@pge.com",
                             customerFirstName = "Kaitlyn",
                             customerLastName = "Anthoni",
-                            customerPhone = " ",
-                            customerPostalCode = " ",
-                            customerState = " "
+                            customerPhone = "555-555-1000",
+                            customerPostalCode = "90001",
+                            customerState = "California"
                         },
                         new
                         {
                             customerId = 2,
+                            customerAddress = "200 Banana Street",
                             customerCity = "Washington",
-                            customerCountry = " ",
-                            customerEmail = "ania@mma.nidc.com",
+                            customerCountry = "USA",
+                            customerEmail = "kanthoni@pge.com",
                             customerFirstName = "Ana",
                             customerLastName = "Irvin",
-                            customerPhone = " ",
-                            customerPostalCode = " ",
-                            customerState = " "
+                            customerPhone = "555-555-1001",
+                            customerPostalCode = "90002",
+                            customerState = "D.C."
                         },
                         new
                         {
                             customerId = 3,
+                            customerAddress = "300 Corn Street",
                             customerCity = "Mission Viejo",
-                            customerCountry = " ",
-                            customerEmail = "  ",
+                            customerCountry = "USA",
+                            customerEmail = " ",
                             customerFirstName = "Gonzalo",
                             customerLastName = "Keeton",
-                            customerPhone = " ",
-                            customerPostalCode = " ",
-                            customerState = " "
+                            customerPhone = "555-555-1002",
+                            customerPostalCode = "90003",
+                            customerState = "California"
                         },
                         new
                         {
                             customerId = 4,
+                            customerAddress = "400 Dingleberry Street",
                             customerCity = "Sacramento",
-                            customerCountry = " ",
+                            customerCountry = "USA",
                             customerEmail = "amauro@yahoo.org",
                             customerFirstName = "Anton",
                             customerLastName = "Mauro",
-                            customerPhone = " ",
-                            customerPostalCode = " ",
-                            customerState = " "
+                            customerPhone = "555-555-1003",
+                            customerPostalCode = "90004",
+                            customerState = "Calfiornia"
                         },
                         new
                         {
                             customerId = 5,
+                            customerAddress = "500 Eggfruit Street",
                             customerCity = "Fresno",
-                            customerCountry = " ",
-                            customerEmail = "kmayte@fresco.ca.gov",
+                            customerCountry = "USA",
+                            customerEmail = "kmayte@fresno.ca.gov",
                             customerFirstName = "Kendall",
                             customerLastName = "Mayte",
-                            customerPhone = " ",
-                            customerPostalCode = " ",
-                            customerState = " "
+                            customerPhone = "555-555-1004",
+                            customerPostalCode = "90005",
+                            customerState = "California"
                         },
                         new
                         {
                             customerId = 6,
+                            customerAddress = "600 Finger Lime Street",
                             customerCity = "Los Angeles",
-                            customerCountry = " ",
-                            customerEmail = "kenzie@mma.jobtrak.com",
+                            customerCountry = "USA",
+                            customerEmail = "kenzie@mma.jobtrack.com",
                             customerFirstName = "Kenzie",
                             customerLastName = "Quinn",
-                            customerPhone = " ",
-                            customerPostalCode = " ",
-                            customerState = " "
+                            customerPhone = "555-555-1005",
+                            customerPostalCode = "90006",
+                            customerState = "California"
                         },
                         new
                         {
                             customerId = 7,
+                            customerAddress = "700 Grape Street",
                             customerCity = "Fresno",
-                            customerCountry = " ",
+                            customerCountry = "USA",
                             customerEmail = "marvin@expedata.com",
                             customerFirstName = "Marvin",
                             customerLastName = "Quintin",
-                            customerPhone = " ",
-                            customerPostalCode = " ",
-                            customerState = " "
+                            customerPhone = "555-555-1006",
+                            customerPostalCode = "90007",
+                            customerState = "California"
                         });
                 });
 
@@ -173,9 +185,15 @@ namespace Assignment1.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("incidentTechnician")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("incidentTitle")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("technicianId")
+                        .HasColumnType("int");
 
                     b.HasKey("incidentId");
 
@@ -190,6 +208,7 @@ namespace Assignment1.Migrations
                             incidentDateOpened = new DateTime(2020, 1, 8, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             incidentDescription = " ",
                             incidentProduct = "Draft Manager 1.0",
+                            incidentTechnician = "Alison Diaz",
                             incidentTitle = "Could not install"
                         },
                         new
@@ -200,6 +219,7 @@ namespace Assignment1.Migrations
                             incidentDateOpened = new DateTime(2020, 1, 8, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             incidentDescription = " ",
                             incidentProduct = "Tournament Master 1.0",
+                            incidentTechnician = "Andrew Wilson",
                             incidentTitle = "Could not install"
                         },
                         new
@@ -210,6 +230,7 @@ namespace Assignment1.Migrations
                             incidentDateOpened = new DateTime(2020, 1, 9, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             incidentDescription = " ",
                             incidentProduct = "League Scheduler Deluxe 1.0",
+                            incidentTechnician = "Gina Fiori",
                             incidentTitle = "Error importing data"
                         },
                         new
@@ -220,6 +241,7 @@ namespace Assignment1.Migrations
                             incidentDateOpened = new DateTime(2020, 1, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             incidentDescription = " ",
                             incidentProduct = "League Scheduler 1.0",
+                            incidentTechnician = "Gunter Wendt",
                             incidentTitle = "Error launching program"
                         });
                 });

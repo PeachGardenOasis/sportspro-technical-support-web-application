@@ -14,14 +14,17 @@ namespace Assignment1.Models
         [Required(ErrorMessage = "Please enter a valid Customer Last Name")] 
         public string customerLastName { get; set; }
 
+        [Required(ErrorMessage = "Please enter a valid Customer Address")]
+        public string customerAddress { get; set; }
+
         [Required(ErrorMessage = "Please enter a valid Customer City")] 
         public string customerCity { get; set; }
         [Required(ErrorMessage = "Please enter a valid Customer State")]
         public string customerState { get; set; }
         [Required(ErrorMessage = "Please enter a valid Customer Postal Code")] 
         public string customerPostalCode { get; set; }
-        
-        public string customerCountry { get; set; } // no validation needed? cus its a drop down list selected by user in add customer page
+        [Required(ErrorMessage = "Please enter a valid Customer Country")]
+        public string customerCountry { get; set; } 
 
         public string customerEmail { get; set; } // The Email and Phone fields are optional.
         // All other fields are required.

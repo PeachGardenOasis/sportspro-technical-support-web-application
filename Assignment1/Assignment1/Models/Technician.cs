@@ -16,7 +16,8 @@ namespace Assignment1.Models
         public string technicianEmail { get; set; }
         [Required(ErrorMessage = "Please enter a valid Technician Phone Number")]
         public string technicianPhone { get; set; }
+     
 
-    
+
     }
 }

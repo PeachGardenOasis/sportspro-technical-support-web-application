@@ -121,85 +121,93 @@ namespace Assignment1.Models
                     customerId = 1,
                     customerFirstName = "Kaitlyn",
                     customerLastName = "Anthoni",
-
-                    customerEmail = "kanthoni@pge.com",
+                    customerAddress = "100 Apple Street",
                     customerCity = "San Francisco",
-                    customerState = " ",
-                    customerPostalCode = " ",
-                    customerPhone=" ",
-                    customerCountry=" "
+                    customerState = "California",
+                    customerPostalCode = "90001",
+                    customerCountry = "Canada",
+//In the Country drop-down list, display all countries that are available from the database (add some countries to your database).
+                    customerEmail = "kanthoni@pge.com",
+                    customerPhone ="555-555-1000"
+                    
                 },
                 new Customer
                 {
                     customerId = 2,
                     customerFirstName = "Ana",
                     customerLastName = "Irvin",
-                    customerEmail = "ania@mma.nidc.com",
+                    customerAddress = "200 Banana Street",
                     customerCity = "Washington",
-                    customerState = " ",
-                    customerPostalCode = " ",
-                    customerPhone = " ",
-                    customerCountry = " "
+                    customerState = "D.C.",
+                    customerPostalCode = "90002",
+                    customerCountry = "USA",
+                    customerEmail = "kanthoni@pge.com",
+                    customerPhone = "555-555-1001"
                 },
                 new Customer
                 {
                     customerId = 3,
                     customerFirstName = "Gonzalo",
                     customerLastName = "Keeton",
-                    customerEmail = "  ",
+                    customerAddress = "300 Corn Street",
                     customerCity = "Mission Viejo",
-                    customerState = " ",
-                    customerPostalCode = " ",
-                    customerPhone = " ",
-                    customerCountry = " "
+                    customerState = "California",
+                    customerPostalCode = "90003",
+                    customerCountry = "USA",
+                    customerEmail = " ",// wireframe shows it to be blank
+                    customerPhone = "555-555-1002"
                 },
                 new Customer
                 {
                     customerId = 4,
                     customerFirstName = "Anton",
                     customerLastName = "Mauro",
-                    customerEmail = "amauro@yahoo.org",
+                    customerAddress = "400 Dingleberry Street",
                     customerCity = "Sacramento",
-                    customerState = " ",
-                    customerPostalCode = " ",
-                    customerPhone = " ",
-                    customerCountry = " "
+                    customerState = "Calfiornia",
+                    customerPostalCode = "90004",
+                    customerCountry = "USA",
+                    customerEmail = "amauro@yahoo.org",
+                    customerPhone = "555-555-1003"
                 },
                 new Customer
                 {
                     customerId = 5,
                     customerFirstName = "Kendall",
                     customerLastName = "Mayte",
-                    customerEmail = "kmayte@fresco.ca.gov",
+                    customerAddress = "500 Eggfruit Street",
                     customerCity = "Fresno",
-                    customerState = " ",
-                    customerPostalCode = " ",
-                    customerPhone = " ",
-                    customerCountry = " "
+                    customerState = "California",
+                    customerPostalCode = "90005",
+                    customerCountry = "USA",
+                    customerEmail = "kmayte@fresno.ca.gov",
+                    customerPhone = "555-555-1004"
                 },
                 new Customer
                 {
                     customerId = 6,
                     customerFirstName = "Kenzie",
                     customerLastName = "Quinn",
-                    customerEmail = "kenzie@mma.jobtrak.com",
+                    customerAddress = "600 Finger Lime Street",
                     customerCity = "Los Angeles",
-                    customerState = " ",
-                    customerPostalCode = " ",
-                    customerPhone = " ",
-                    customerCountry = " "
+                    customerState = "California",
+                    customerPostalCode = "90006",
+                    customerCountry = "USA",
+                    customerEmail = "kenzie@mma.jobtrack.com",
+                    customerPhone = "555-555-1005"
                 },
                 new Customer
                 {
                     customerId = 7,
                     customerFirstName = "Marvin",
                     customerLastName = "Quintin",
-                    customerEmail = "marvin@expedata.com",
+                    customerAddress = "700 Grape Street",
                     customerCity = "Fresno",
-                    customerState = " ",
-                    customerPostalCode = " ",
-                    customerPhone = " ",
-                    customerCountry = " "
+                    customerState = "California",
+                    customerPostalCode = "90007",
+                    customerCountry = "USA", 
+                    customerEmail = "marvin@expedata.com",
+                    customerPhone = "555-555-1006"
                 }
                 );
 
@@ -208,12 +216,14 @@ namespace Assignment1.Models
                 new Incident
                 {
                     incidentId = 1,
-                    incidentTitle = "Could not install",
                     incidentCustomer = "Kendall Mayte",
                     incidentProduct = "Draft Manager 1.0",
+                    incidentTitle = "Could not install",
+                    incidentDescription = " ",
+                    incidentTechnician="Alison Diaz", // needed for editing incident page
                     incidentDateOpened = new DateTime(2020, 1, 8),
                     incidentDateClosed= new DateTime(),
-                    incidentDescription =" "
+                    
                     
                 },
                 new Incident
@@ -224,7 +234,8 @@ namespace Assignment1.Models
                     incidentProduct = "Tournament Master 1.0",
                     incidentDateOpened = new DateTime(2020, 1, 8),
                     incidentDateClosed = new DateTime(),
-                    incidentDescription = " "
+                    incidentDescription = " ",
+                    incidentTechnician = "Andrew Wilson",
                 },
                 new Incident
                 {
@@ -234,7 +245,8 @@ namespace Assignment1.Models
                     incidentProduct = "League Scheduler Deluxe 1.0",
                     incidentDateOpened = new DateTime(2020, 1, 9),
                     incidentDateClosed = new DateTime(),
-                    incidentDescription = " "
+                    incidentDescription = " ",
+                    incidentTechnician = "Gina Fiori",
                 },
                 new Incident
                 {
@@ -244,7 +256,8 @@ namespace Assignment1.Models
                     incidentProduct = "League Scheduler 1.0",
                     incidentDateOpened = new DateTime(2020, 1, 10),
                     incidentDateClosed = new DateTime(),
-                    incidentDescription = " "
+                    incidentDescription = " ",
+                    incidentTechnician = "Gunter Wendt",
                 }
                 );
         }

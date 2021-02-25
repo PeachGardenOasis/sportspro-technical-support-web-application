@@ -32,9 +32,13 @@ namespace Assignment1.Controllers
         }
 
         [HttpGet]
-        public IActionResult Edit()
+        public IActionResult Edit(int id)
         {
-            return View();
+            ViewBag.Action = "Edit";
+
+            var customer = context.Customer
+                .FirstOrDefault(context => context.customerId == id);
+            return View(customer);
         }
 
         [HttpGet]

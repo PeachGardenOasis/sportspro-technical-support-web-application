@@ -1,1 +1,42 @@
-﻿<h3>Technician Add/Edit Page</h3>
+﻿@model Technician
+<h3>@ViewBag.Action Technician</h3>
+
+@if (ViewBag.Action == "Add")
+{
+    <form>
+        <label for="technnicianFullName">Name</label>
+        <br />
+        <input type="text" id="technicianFullName" name="technicianFullName" />
+        <br />
+        <label for="technicianEmail">Email</label>
+        <br />
+        <input type="text" id="technicianEmail" name="technicianEmail" />
+        <br />
+        <label for="technicianPhone">Phone</label>
+        <br />
+        <input type="text" id="technicianPhone" name="technicianPhone" />
+        <br /><br />
+        <button type="submit">Save</button>
+        <button type="button" onclick="location.href='@Url.Action("List", "Technician")'">Cancel</button>
+    </form>
+}
+@if (ViewBag.Action == "Edit")
+{
+    <form>
+        <label for="technnicianFullName">Name</label>
+        <br />
+        <input type="text" id="technnicianFullName" name="technnicianFullName" value="@Html.DisplayFor(model => model.technicianFullName)" />
+        <br />
+        <label for="technicianEmail">Email</label>
+        <br />
+        <input type="text" id="technicianEmail" name="technicianEmail" value="@Html.DisplayFor(model => model.technicianEmail)" />
+        <br />
+        <label for="technicianPhone">Phone</label>
+        <br />
+        <input type="text" id="technicianPhone" name="technicianPhone" value="@Html.DisplayFor(model => model.technicianPhone)" />
+        <br />
+        <br />
+        <button type="submit">Save</button>
+        <button type="button" onclick="location.href='@Url.Action("List", "Technician")'">Cancel</button>
+    </form>
+}

@@ -13,15 +13,26 @@
         <tr></tr>
     </thead>
     <tbody>
-        @foreach(Technician technician in Model)
+        @foreach (Technician technician in Model)
         {
             <tr>
                 <td>@technician.technicianFullName</td>
                 <td>@technician.technicianEmail</td>
                 <td>@technician.technicianPhone</td>
-                <td>Temporary Edit</td>
-                <td>Temporary Delete</td>
+                <td>
+                    <form>
+                        <button type="submit" asp-action="Edit" asp-controller="Technician" asp-route-id="@technician.technicianId">Edit</button>
+                    </form>
+                </td>
+                <td>
+                    <form>
+                        <button type="submit">Delete</button>
+                    </form>
+                </td>
             </tr>
         }
     </tbody>
 </table>
+<form>
+    <button type="submit" asp-action="Add" asp-controller="Technician">Add Technician</button>
+</form>

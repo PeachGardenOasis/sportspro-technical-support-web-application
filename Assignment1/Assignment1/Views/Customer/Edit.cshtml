@@ -1,1 +1,90 @@
-﻿<h3>Customer Add/Edit Page</h3>
+﻿@model Customer
+<h3>@ViewBag.Action Customer</h3>
+
+@if (ViewBag.Action == "Add")
+{
+<form>
+    <label for="customerFirstName">First Name</label>
+    <br />
+    <input type="text" id="customerFirstName" name="customerFirstName" />
+    <br />
+    <label for="customerLastName">Last Name</label>
+    <br />
+    <input type="text" id="customerLastName" name="customerLastName" />
+    <br />
+    <label for="customerAddress">Address</label>
+    <br />
+    <input type="text" id="customerAddress" name="customerAddress" />
+    <br />
+    <label for="customerCity">City</label>
+    <br />
+    <input type="text" id="customerCity" name="customerCity" />
+    <br />
+    <label for="customerState">State</label>
+    <br />
+    <input type="text" id="customerState" name="customerState" />
+    <br />
+    <label for="customerCountry">Select a country...</label>
+    <select id="customerCountry" name="customerCountry">
+        <option value="Canada">Canada</option>
+        <option value="USA">USA</option>
+        <option value="United Kingdom">United Kingdom</option>
+        <option value="France">France</option>
+    </select>
+    <br />
+    <label for="customerEmail">Email</label>
+    <br />
+    <input type="text" id="customerEmail" name="customerEmail" />
+    <br />
+    <label for="customerPhone">Phone</label>
+    <br />
+    <input type="text" id="customerPhone" name="customerPhone" />
+    <br /><br />
+    <button type="submit">Save</button>
+    <button type="button" onclick="location.href='@Url.Action("List", "Customer")'">Cancel</button>
+</form>
+}
+@if (ViewBag.Action == "Edit")
+{
+<form>
+    <label for="customerFirstName">First Name</label>
+    <br />
+    <input type="text" id="customerFirstName" name="customerFirstName" value="@Html.DisplayFor(model => model.customerFirstName)" />
+    <br />
+    <label for="customerLastName">Last Name</label>
+    <br />
+    <input type="text" id="customerLastName" name="customerLastName" value="@Html.DisplayFor(model => model.customerLastName)" />
+    <br />
+    <label for="customerAddress">Address</label>
+    <br />
+    <input type="text" id="customerAddress" name="customerAddress" value="@Html.DisplayFor(model => model.customerAddress)" />
+    <br />
+    <label for="customerCity">City</label>
+    <br />
+    <input type="text" id="customerCity" name="customerCity" value="@Html.DisplayFor(model => model.customerCity)" />
+    <br />
+    <label for="customerState">State</label>
+    <br />
+    <input type="text" id="customerState" name="customerState" value="@Html.DisplayFor(model => model.customerState)" />
+    <br />
+    <label for="customerPostalCode">Postal Code</label>
+    <br />
+    <input type="text" id="customerPostalCode" name="customerPostalCode" value="@Html.DisplayFor(model => model.customerPostalCode)" />
+    <br />
+    <label for="customerCountry">Country</label>
+    <br />
+    <input type="text" id="customerCountry" name="customerCountry" value="@Html.DisplayFor(model => model.customerCountry)" />
+    <br />
+    <label for="customerEmail">Email</label>
+    <br />
+    <input type="text" id="customerEmail" name="customerEmail" value="@Html.DisplayFor(model => model.customerEmail)" />
+    <br />
+    <label for="customerPhone">Phone</label>
+    <br />
+    <input type="text" id="customerPhone" name="customerPhone" value="@Html.DisplayFor(model => model.customerPhone)" />
+    <br />
+    <br />
+    <button type="submit">Save</button>
+    <button type="button" onclick="location.href='@Url.Action("List", "Customer")'">Cancel</button>
+</form>
+}

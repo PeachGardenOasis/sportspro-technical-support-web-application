@@ -36,11 +36,10 @@ namespace Assignment1.Controllers
         public IActionResult Edit(int id)
         {
             ViewBag.Action = "Edit";
-            ViewBag.Technician = context.Technician.OrderBy(c => c.technicianFullName.ToList());
 
-          
-
-            return View();
+            var technician = context.Technician
+                .FirstOrDefault(context => context.technicianId == id);
+            return View(technician);
         }
 
         [HttpGet]
