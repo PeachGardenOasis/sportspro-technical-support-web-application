@@ -16,7 +16,7 @@ namespace Assignment1.Models
         public string incidentCustomer { get; set; } // in add/edit incidents page user must select customer and product from dropdown
         [Required(ErrorMessage = "Please enter a valid Incident Product")]
         public string incidentProduct { get; set; }
-        public string incidentTechnician { get; set; }// The Technician and Data Opened fields are optional.
+        public string incidentTechnician { get; set; }// The Technician and Data Opened fields are optional
         // All other fields are required
         public DateTime incidentDateOpened { get; set; } 
         [Required(ErrorMessage = "Please enter a valid date for Incident Date Closed")]
