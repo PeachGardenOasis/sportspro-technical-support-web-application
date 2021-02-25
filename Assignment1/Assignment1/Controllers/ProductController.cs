@@ -46,8 +46,7 @@ namespace Assignment1.Controllers
         public IActionResult Delete(int id)
         {
             var product = context.Product
-                .Include(context => context.productId == id)
-                .FirstOrDefault();
+                .FirstOrDefault(context => context.productId == id);
             return View(product);
         }
 
