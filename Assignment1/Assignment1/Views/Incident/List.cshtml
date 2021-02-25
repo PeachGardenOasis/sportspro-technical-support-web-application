@@ -16,22 +16,34 @@
     <tbody>
         @foreach (Incident incident in Model)
         {
-            <tr>
-                <td>@incident.incidentTitle</td>
-                <td>@incident.incidentCustomer</td>
-                <td>@incident.incidentProduct</td>
-                <td>@incident.incidentDateOpened</td>
-                <td>
-                    <form>
-                        <button type="submit" asp-action="Edit" asp-controller="Incident" asp-route-id="@incident.incidentId">Edit</button>
-                    </form>
-                </td>
-                <td>
-                    <form>
-                        <button type="submit">Delete</button>
-                    </form>
-                </td>
-            </tr>
+        <tr>
+            <td>@incident.incidentTitle</td>
+            @foreach (Customer customer in ViewBag.Customer)
+            {
+                if (@customer.customerId == @incident.incidentCustomerId)
+                {
+                    <td>@customer.customerFirstName @customer.customerLastName</td>
+                }
+            }
+            @foreach (Product product in ViewBag.Product)
+            {
+                if (@product.productId == @incident.incidentProductId)
+                {
+                    <td>@product.productName</td>
+                }
+            }
+            <td>@incident.incidentDateOpened</td>
+            <td>
+                <form>
+                    <button type="submit" asp-action="Edit" asp-controller="Incident" asp-route-id="@incident.incidentId">Edit</button>
+                </form>
+            </td>
+            <td>
+                <form>
+                    <button type="submit" asp-action="Delete" asp-controller="Incident" asp-route-id="@incident.incidentId">Delete</button>
+                </form>
+            </td>
+        </tr>
         }
     </tbody>
 </table>

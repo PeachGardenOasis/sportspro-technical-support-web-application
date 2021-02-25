@@ -19,6 +19,8 @@ namespace Assignment1.Controllers
         public IActionResult List()
         {
             var incident = context.Incident;
+            ViewBag.Customer = context.Customer.OrderBy(context => context.customerId).ToList();
+            ViewBag.Product = context.Product.OrderBy(context => context.productId).ToList();
             return View(incident);
         }
 
@@ -28,25 +30,65 @@ namespace Assignment1.Controllers
             // TO DO
             ViewBag.Action = "Add";
             ViewBag.Incident = context.Incident.OrderBy(c => c.incidentTitle.ToList());
-            return View("Edit");
+            ViewBag.Customer = context.Customer.OrderBy(context => context.customerId).ToList();
+            ViewBag.Product = context.Product.OrderBy(context => context.productId).ToList();
+            ViewBag.Technician = context.Technician.OrderBy(context => context.technicianId).ToList();
+            return View("Edit", new Incident());
         }
 
         [HttpGet]
-        public IActionResult Edit()
+        public IActionResult Edit(int id)
         {
-            return View();
+            ViewBag.Action = "Edit";
+            ViewBag.Incident = context.Incident.OrderBy(c => c.incidentTitle.ToList());
+            ViewBag.Customer = context.Customer.OrderBy(context => context.customerId).ToList();
+            ViewBag.Product = context.Product.OrderBy(context => context.productId).ToList();
+            ViewBag.Technician = context.Technician.OrderBy(context => context.technicianId).ToList();
+
+            var incident = context.Incident
+                .FirstOrDefault(context => context.incidentId == id);
+            return View(incident);
         }
 
         [HttpGet]
-        public IActionResult Delete()
+        public IActionResult Delete(int id)
         {
-            return View();
+            ViewBag.Customer = context.Customer.OrderBy(context => context.customerId).ToList();
+            ViewBag.Product = context.Product.OrderBy(context => context.productId).ToList();
+            ViewBag.Technician = context.Technician.OrderBy(context => context.technicianId).ToList();
+
+            var incident = context.Incident
+                .FirstOrDefault(context => context.incidentId == id);
+            return View(incident);
         }
 
         [HttpPost]
         public IActionResult Edit(Incident incident)
         {
-            return View();
+            string action = (incident.incidentId == 0) ? "Add" : "Edit";
+
+            if (ModelState.IsValid)
+            {
+                if (action == "Add")
+                {
+                    context.Incident.Add(incident);
+                }
+                else
+                {
+                    context.Incident.Update(incident);
+                }
+                context.SaveChanges();
+                return RedirectToAction("List", "Incident");
+            }
+            else
+            {
+                ViewBag.Action = action;
+                ViewBag.Incident = context.Incident.OrderBy(c => c.incidentTitle.ToList());
+                ViewBag.Customer = context.Customer.OrderBy(context => context.customerId).ToList();
+                ViewBag.Product = context.Product.OrderBy(context => context.productId).ToList();
+                ViewBag.Technician = context.Technician.OrderBy(context => context.technicianId).ToList();
+                return View(incident);
+            }
         }
 
         [HttpPost]
@@ -54,7 +96,7 @@ namespace Assignment1.Controllers
         {
             context.Incident.Remove(incident); // remove 
             context.SaveChanges();
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("List", "Incident");
 
 
         }

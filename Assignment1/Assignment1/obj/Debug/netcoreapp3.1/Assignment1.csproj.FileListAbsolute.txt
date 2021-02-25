@@ -262,3 +262,4 @@ C:\Users\simon\Documents\`School\`T127 SEM 4\[C#] Web Application Development\as
 D:\School\Semester 4\COMP2139\Assignment\Assignment1\Assignment1\Assignment1\obj\Debug\netcoreapp3.1\Razor\Views\Product\Delete.cshtml.g.cs
 D:\School\Semester 4\COMP2139\Assignment\Assignment1\Assignment1\Assignment1\obj\Debug\netcoreapp3.1\Razor\Views\Technician\Delete.cshtml.g.cs
 D:\School\Semester 4\COMP2139\Assignment\Assignment1\Assignment1\Assignment1\obj\Debug\netcoreapp3.1\Razor\Views\Customer\Delete.cshtml.g.cs
+D:\School\Semester 4\COMP2139\Assignment\Assignment1\Assignment1\Assignment1\obj\Debug\netcoreapp3.1\Razor\Views\Incident\Delete.cshtml.g.cs

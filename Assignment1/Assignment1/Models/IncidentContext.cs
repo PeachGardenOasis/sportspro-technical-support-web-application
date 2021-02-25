@@ -116,55 +116,6 @@ namespace Assignment1.Models
                 }
                 );
 
-            // incidents
-            modelBuilder.Entity<Incident>().HasData(
-                new Incident
-                {
-                    incidentId = 1,
-                    incidentCustomer = "Kendall Mayte",
-                    incidentProduct = "Draft Manager 1.0",
-                    incidentTitle = "Could not install",
-                    incidentDescription = " ",
-                    incidentTechnician="Alison Diaz", // needed for editing incident page
-                    incidentDateOpened = new DateTime(2020, 1, 8),
-                    incidentDateClosed= new DateTime(),
-                    
-                    
-                },
-                new Incident
-                {
-                    incidentId = 2,
-                    incidentTitle = "Could not install",
-                    incidentCustomer = "Gonzoalo Keeton",
-                    incidentProduct = "Tournament Master 1.0",
-                    incidentDateOpened = new DateTime(2020, 1, 8),
-                    incidentDateClosed = new DateTime(),
-                    incidentDescription = " ",
-                    incidentTechnician = "Andrew Wilson",
-                },
-                new Incident
-                {
-                    incidentId = 3,
-                    incidentTitle = "Error importing data",
-                    incidentCustomer = "Ania Irvin",
-                    incidentProduct = "League Scheduler Deluxe 1.0",
-                    incidentDateOpened = new DateTime(2020, 1, 9),
-                    incidentDateClosed = new DateTime(),
-                    incidentDescription = " ",
-                    incidentTechnician = "Gina Fiori",
-                },
-                new Incident
-                {
-                    incidentId = 4,
-                    incidentTitle = "Error launching program",
-                    incidentCustomer = "Kendall Mayte",
-                    incidentProduct = "League Scheduler 1.0",
-                    incidentDateOpened = new DateTime(2020, 1, 10),
-                    incidentDateClosed = new DateTime(),
-                    incidentDescription = " ",
-                    incidentTechnician = "Gunter Wendt",
-                }
-                );
             modelBuilder.Entity<Country>().HasData(
                     new Country
                     {
@@ -285,6 +236,56 @@ namespace Assignment1.Models
                     customerCountryId = 2, 
                     customerEmail = "marvin@expedata.com",
                     customerPhone = "555-555-1006"
+                }
+                );
+
+            // incidents
+            modelBuilder.Entity<Incident>().HasData(
+                new Incident
+                {
+                    incidentId = 1,
+                    incidentCustomerId = 5,
+                    incidentProductId = 4,
+                    incidentTitle = "Could not install",
+                    incidentDescription = " ",
+                    incidentTechnicianId = 1, // needed for editing incident page
+                    incidentDateOpened = new DateTime(2020, 1, 8),
+                    incidentDateClosed = new DateTime(),
+
+
+                },
+                new Incident
+                {
+                    incidentId = 2,
+                    incidentTitle = "Could not install",
+                    incidentCustomerId = 3,
+                    incidentProductId = 1,
+                    incidentDateOpened = new DateTime(2020, 1, 8),
+                    incidentDateClosed = new DateTime(),
+                    incidentDescription = " ",
+                    incidentTechnicianId = 2,
+                },
+                new Incident
+                {
+                    incidentId = 3,
+                    incidentTitle = "Error importing data",
+                    incidentCustomerId = 2,
+                    incidentProductId = 3,
+                    incidentDateOpened = new DateTime(2020, 1, 9),
+                    incidentDateClosed = new DateTime(),
+                    incidentDescription = " ",
+                    incidentTechnicianId = 3,
+                },
+                new Incident
+                {
+                    incidentId = 4,
+                    incidentTitle = "Error launching program",
+                    incidentCustomerId = 5,
+                    incidentProductId = 2,
+                    incidentDateOpened = new DateTime(2020, 1, 10),
+                    incidentDateClosed = new DateTime(),
+                    incidentDescription = " ",
+                    incidentTechnicianId = 4,
                 }
                 );
         }

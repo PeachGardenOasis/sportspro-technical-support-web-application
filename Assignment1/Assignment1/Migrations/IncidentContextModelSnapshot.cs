@@ -208,9 +208,8 @@ namespace Assignment1.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("incidentCustomer")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("incidentCustomerId")
+                        .HasColumnType("int");
 
                     b.Property<DateTime>("incidentDateClosed")
                         .HasColumnType("datetime2");
@@ -222,21 +221,23 @@ namespace Assignment1.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("incidentProduct")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("incidentProductId")
+                        .HasColumnType("int");
 
-                    b.Property<string>("incidentTechnician")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int?>("incidentTechnicianId")
+                        .HasColumnType("int");
 
                     b.Property<string>("incidentTitle")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("technicianId")
-                        .HasColumnType("int");
-
                     b.HasKey("incidentId");
+
+                    b.HasIndex("incidentCustomerId");
+
+                    b.HasIndex("incidentProductId");
+
+                    b.HasIndex("incidentTechnicianId");
 
                     b.ToTable("Incident");
 
@@ -244,45 +245,45 @@ namespace Assignment1.Migrations
                         new
                         {
                             incidentId = 1,
-                            incidentCustomer = "Kendall Mayte",
+                            incidentCustomerId = 5,
                             incidentDateClosed = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             incidentDateOpened = new DateTime(2020, 1, 8, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             incidentDescription = " ",
-                            incidentProduct = "Draft Manager 1.0",
-                            incidentTechnician = "Alison Diaz",
+                            incidentProductId = 4,
+                            incidentTechnicianId = 1,
                             incidentTitle = "Could not install"
                         },
                         new
                         {
                             incidentId = 2,
-                            incidentCustomer = "Gonzoalo Keeton",
+                            incidentCustomerId = 3,
                             incidentDateClosed = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             incidentDateOpened = new DateTime(2020, 1, 8, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             incidentDescription = " ",
-                            incidentProduct = "Tournament Master 1.0",
-                            incidentTechnician = "Andrew Wilson",
+                            incidentProductId = 1,
+                            incidentTechnicianId = 2,
                             incidentTitle = "Could not install"
                         },
                         new
                         {
                             incidentId = 3,
-                            incidentCustomer = "Ania Irvin",
+                            incidentCustomerId = 2,
                             incidentDateClosed = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             incidentDateOpened = new DateTime(2020, 1, 9, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             incidentDescription = " ",
-                            incidentProduct = "League Scheduler Deluxe 1.0",
-                            incidentTechnician = "Gina Fiori",
+                            incidentProductId = 3,
+                            incidentTechnicianId = 3,
                             incidentTitle = "Error importing data"
                         },
                         new
                         {
                             incidentId = 4,
-                            incidentCustomer = "Kendall Mayte",
+                            incidentCustomerId = 5,
                             incidentDateClosed = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             incidentDateOpened = new DateTime(2020, 1, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             incidentDescription = " ",
-                            incidentProduct = "League Scheduler 1.0",
-                            incidentTechnician = "Gunter Wendt",
+                            incidentProductId = 2,
+                            incidentTechnicianId = 4,
                             incidentTitle = "Error launching program"
                         });
                 });
@@ -441,6 +442,31 @@ namespace Assignment1.Migrations
                         .IsRequired();
 
                     b.Navigation("customerCountry");
+                });
+
+            modelBuilder.Entity("Assignment1.Models.Incident", b =>
+                {
+                    b.HasOne("Assignment1.Models.Customer", "incidentCustomer")
+                        .WithMany()
+                        .HasForeignKey("incidentCustomerId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Assignment1.Models.Product", "incidentProduct")
+                        .WithMany()
+                        .HasForeignKey("incidentProductId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Assignment1.Models.Technician", "incidentTechnician")
+                        .WithMany()
+                        .HasForeignKey("incidentTechnicianId");
+
+                    b.Navigation("incidentCustomer");
+
+                    b.Navigation("incidentProduct");
+
+                    b.Navigation("incidentTechnician");
                 });
 #pragma warning restore 612, 618
         }

@@ -12,18 +12,24 @@ namespace Assignment1.Models
         public string incidentTitle { get; set; }
         [Required(ErrorMessage = "Please enter a valid Incident Description")]
         public string incidentDescription { get; set; }
-        [Required(ErrorMessage = "Please enter a valid Incident Customer")]
-        public string incidentCustomer { get; set; } // in add/edit incidents page user must select customer and product from dropdown
-        [Required(ErrorMessage = "Please enter a valid Incident Product")]
-        public string incidentProduct { get; set; }
-        public string incidentTechnician { get; set; }// The Technician and Data Opened fields are optional
-        // All other fields are required
+
+        // Customer
+        [Range(1, 100000, ErrorMessage = "Please select a valid Customer")]
+        public int incidentCustomerId { get; set; } // in add/edit incidents page user must select customer and product from dropdown
+        public Customer incidentCustomer { get; set; }
+
+        // Product
+        [Range(1, 100000, ErrorMessage = "Please select a valid Incident Product")]
+        public int incidentProductId { get; set; }
+        public Product incidentProduct { get; set; }
+
+        // Technician
+        public int? incidentTechnicianId { get; set; }
+        public Technician incidentTechnician { get; set; }
+
+        // Dates
         public DateTime incidentDateOpened { get; set; } 
         [Required(ErrorMessage = "Please enter a valid date for Incident Date Closed")]
         public DateTime incidentDateClosed { get; set; }
-
-        public int? technicianId { get; set; }//To make the Technician field optional, make sure to specify a nullable int type (?int) for the TechnicianID
-        //property of the Incident entity class.
-
     }
 }
