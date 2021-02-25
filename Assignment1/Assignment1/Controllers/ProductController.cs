@@ -43,15 +43,37 @@ namespace Assignment1.Controllers
         }
 
         [HttpGet]
-        public IActionResult Delete()
+        public IActionResult Delete(int id)
         {
-            return View();
+            var product = context.Product
+                .Include(context => context.productId == id)
+                .FirstOrDefault();
+            return View(product);
         }
 
         [HttpPost]
         public IActionResult Edit(Product product)
         {
-            return View();
+            string action = (product.productId == 0) ? "Add" : "Edit";
+
+            if (ModelState.IsValid)
+            {
+                if (action == "Add")
+                {
+                    context.Product.Add(product);
+                }
+                else
+                {
+                    context.Product.Update(product);
+                }
+                context.SaveChanges();
+                return RedirectToAction("List", "Product");
+            }
+            else
+            {
+                ViewBag.Action = action;
+                return View(product);
+            }
         }
 
         [HttpPost]
@@ -59,8 +81,7 @@ namespace Assignment1.Controllers
         {
             context.Product.Remove(product); // remove 
             context.SaveChanges();
-            return RedirectToAction("Index", "Home");
-
+            return RedirectToAction("List", "Product");
         }
     }
 }
