@@ -18,8 +18,7 @@ namespace Assignment1.Controllers
 
         public IActionResult List()
         {
-            var technican = context.Technician;
-              
+            var technican = context.Technician; 
             return View(technican);
         }
 
@@ -45,7 +44,8 @@ namespace Assignment1.Controllers
         [HttpGet]
         public IActionResult Delete(int id)
         {
-            var technician = context.Technician;
+            var technician = context.Technician
+                .FirstOrDefault(context => context.technicianId == id);
             return View(technician);
         }
 
@@ -66,7 +66,7 @@ namespace Assignment1.Controllers
                     context.Technician.Update(technician);
                 }
                 context.SaveChanges();
-                return RedirectToAction("Index", "Home"); // return home
+                return RedirectToAction("List", "Technician"); // return to technician list
             }
             else //if Model state is not valid
             {
@@ -81,7 +81,7 @@ namespace Assignment1.Controllers
         {
             context.Technician.Remove(technician); // remove technician
             context.SaveChanges();
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("List", "Technician");
         }
     }
 }

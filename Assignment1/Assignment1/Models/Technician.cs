@@ -7,7 +7,7 @@ namespace Assignment1.Models
 {
     public class Technician
     {
-        public int? technicianId { get; set; } // nullable type for technicianid mentioned in instructions
+        public int technicianId { get; set; } // nullable type for technicianid mentioned in instructions
         //• To make the Technician field optional, make sure to specify a nullable int type (?int) for the TechnicianID
         //property of the Incident entity class.
         [Required(ErrorMessage = "Please enter a valid Technician Full Name")]

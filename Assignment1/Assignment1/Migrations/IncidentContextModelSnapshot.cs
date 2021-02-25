@@ -330,7 +330,7 @@ namespace Assignment1.Migrations
 
             modelBuilder.Entity("Assignment1.Models.Technician", b =>
                 {
-                    b.Property<int?>("technicianId")
+                    b.Property<int>("technicianId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
