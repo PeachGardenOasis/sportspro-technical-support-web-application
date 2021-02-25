@@ -38,6 +38,6 @@
         <input type="hidden" value="@Model.incidentTechnicianId" asp-for="incidentTechnicianId" />
         <input type="hidden" id="incidentDateOpened" name="incidentDateOpened" value="@Model.incidentDateOpened" asp-for="incidentDateOpened" />
         <input type="hidden" id="incidentDateClosed" name="incidentDateClosed" value="@Model.incidentDateClosed" asp-for="incidentDateClosed" />
-        <input type="submit" value="Delete" />
-        <button type="button" onclick="location.href='@Url.Action("List", "Incident")'">Cancel</button>
+        <input class="btn btn-primary"type="submit" value="Delete" />
+        <button class="btn btn-primary"type="button" onclick="location.href='@Url.Action("List", "Incident")'">Cancel</button>
     </form>

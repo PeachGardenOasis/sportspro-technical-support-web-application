@@ -17,8 +17,8 @@
         <br />
         <input type="text" id="technicianPhone" name="technicianPhone" asp-for="technicianPhone"/>
         <br /><br />
-        <button type="submit">Save</button>
-        <button type="button" onclick="location.href='@Url.Action("List", "Technician")'">Cancel</button>
+        <button class="btn btn-primary"type="submit">Save</button>
+        <button class="btn btn-primary"type="button" onclick="location.href='@Url.Action("List", "Technician")'">Cancel</button>
     </form>
 }
 @if (ViewBag.Action == "Edit")
@@ -38,7 +38,7 @@
         <input type="text" id="technicianPhone" name="technicianPhone" value="@Model.technicianPhone" asp-for="technicianPhone"/>
         <br />
         <br />
-        <button type="submit">Save</button>
-        <button type="button" onclick="location.href='@Url.Action("List", "Technician")'">Cancel</button>
+        <button class="btn btn-primary"type="submit">Save</button>
+        <button class="btn btn-primary"type="button" onclick="location.href='@Url.Action("List", "Technician")'">Cancel</button>
     </form>
 }

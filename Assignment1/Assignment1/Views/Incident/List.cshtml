@@ -4,18 +4,19 @@
 }
 
 <h3>Incident Manager</h3>
-<table>
+<table class="table table-striped">
+
     <thead>
-        <tr>Title</tr>
-        <tr>Customer</tr>
-        <tr>Product</tr>
-        <tr>Date Opened</tr>
-        <tr></tr>
-        <tr></tr>
+        <tr class="danger">
+            <th class="th">Customer</th>
+            <th class="th">Title</th>
+            <th class="th">Product</th>
+            <th class="th">Date Opened</th>
+
+        </tr>
     </thead>
-    <tbody>
-        @foreach (Incident incident in Model)
-        {
+    @foreach (Incident incident in Model)
+    {
         <tr>
             <td>@incident.incidentTitle</td>
             @foreach (Customer customer in ViewBag.Customer)
@@ -35,18 +36,18 @@
             <td>@incident.incidentDateOpened</td>
             <td>
                 <form>
-                    <button type="submit" asp-action="Edit" asp-controller="Incident" asp-route-id="@incident.incidentId">Edit</button>
+                    <button class="btn btn-primary"type="submit" asp-action="Edit" asp-controller="Incident" asp-route-id="@incident.incidentId">Edit</button>
                 </form>
             </td>
             <td>
                 <form>
-                    <button type="submit" asp-action="Delete" asp-controller="Incident" asp-route-id="@incident.incidentId">Delete</button>
+                    <button class="btn btn-primary"type="submit" asp-action="Delete" asp-controller="Incident" asp-route-id="@incident.incidentId">Delete</button>
                 </form>
             </td>
         </tr>
-        }
-    </tbody>
+    }
+    
 </table>
 <form>
-    <button type="submit" asp-action="Add" asp-controller="Incident">Add Incident</button>
+    <button class="btn btn-primary"type="submit" asp-action="Add" asp-controller="Incident">Add Incident</button>
 </form>

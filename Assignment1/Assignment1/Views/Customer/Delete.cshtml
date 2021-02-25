@@ -22,7 +22,7 @@
     <input type="hidden" id="customerCountry" name="customerCountry" asp-for="@Model.customerCountry" />
     <input type="hidden" id="customerEmail" name="customerEmail" asp-for="@Model.customerEmail" />
     <input type="hidden" id="customerPhone" name="customerPhone" asp-for="@Model.customerPhone" />
-    <input type="submit" value="Delete" />
-    <button type="button" onclick="location.href='@Url.Action("List", "Customer")'">Cancel</button>
+    <input class="btn btn-primary"type="submit" value="Delete" />
+    <button class="btn btn-primary"type="button" onclick="location.href='@Url.Action("List", "Customer")'">Cancel</button>
 </form>
 

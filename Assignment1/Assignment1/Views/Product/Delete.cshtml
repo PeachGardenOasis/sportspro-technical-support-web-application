@@ -17,6 +17,6 @@
     <input type="hidden" id="productName" name="productName" value="@Model.productName" asp-for="productName" />
     <input type="hidden" id="productPrice" name="productPrice" value="@Model.productPrice" asp-for="productPrice" />
     <input type="hidden" id="productReleaseDate" name="productReleaseDate" value="@Model.productReleaseDate" asp-for="productReleaseDate" />
-    <input type="submit" value="Delete" />
-    <button type="button" onclick="location.href='@Url.Action("List", "Product")'">Cancel</button>
+    <input class="btn btn-primary" type="submit" value="Delete" />
+    <button class="btn btn-primary" type="button" onclick="location.href='@Url.Action("List", "Product")'">Cancel</button>
 </form>

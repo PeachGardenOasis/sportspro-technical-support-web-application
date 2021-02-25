@@ -9,30 +9,53 @@
 
 <div class="text-left">
     <h3>Admin</h3>
-    <ul>
-        <li>
-            <a asp-action="List" asp-controller="Product">Manage Products</a>
-        </li>
-        <li>
-            <a asp-action="List" asp-controller="Technician">Manage Technicians</a>
-        </li>
-        <li>
-            <a asp-action="List" asp-controller="Customer">Manage Customers</a>
-        </li>
-        <li>
-            <a asp-action="List" asp-controller="Incident">Manage Incidents</a>
-        </li>
-        <li>
-            <a asp-action="List" asp-controller="Registration">Manage Registration</a>
-        </li>
-    </ul>
-</div>
+    <div class="col">
+        <ul>
+            <li>
+                <a asp-action="List" asp-controller="Product">Manage Products</a>
+            </li>
+        </ul>
+    </div>
 
+    <div class="col">
+        <ul>
+            <li>
+                <a asp-action="List" asp-controller="Technician">Manage Technicians</a>
+            </li>
+        </ul>
+    </div>
+    <div class="col">
+        <ul>
+            <li>
+                <a asp-action="List" asp-controller="Customer">Manage Customers</a>
+            </li>
+        </ul>
+    </div>
+    <div class="col">
+        <ul>
+            <li>
+                <a asp-action="List" asp-controller="Incident">Manage Incidents</a>
+            </li>
+        </ul>
+    </div>
+    <div class="col">
+        <ul>
+            <li>
+                <a asp-action="List" asp-controller="Registration">Manage Registration</a>
+            </li>
+        </ul>
+    </div>
+   
+  
+</div>
+<br />
 <div class="text-left">
     <h3>Technicians</h3>
-    <ul>
-        <li>
-            <a asp-action="List" asp-controller="UpdateIncident">Update Incidents</a>
-        </li>
-    </ul>
 </div>
+    <div class="col">
+        <ul>
+            <li>
+                <a asp-action="List" asp-controller="UpdateIncident">Update Incidents</a>
+            </li>
+        </ul>
+    </div>

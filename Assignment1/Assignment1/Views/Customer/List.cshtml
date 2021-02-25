@@ -4,36 +4,35 @@
 }
 
 <h3>Customer Manager</h3>
-<table>
+<table class="table table-striped">
+
     <thead>
-        <tr>Name</tr>
-        <tr>Email</tr>
-        <tr>City</tr>
-        <tr></tr>
-        <tr></tr>
+        <tr>
+            <th class="th">Name</th>
+            <th class="th">Email</th>
+            <th class="th">City</th>
+        </tr>
     </thead>
-    <tbody>
-        @foreach (Customer customer in Model)
-        {
-            <tr>
-                <td>@customer.customerFirstName</td>
-                <td>@customer.customerLastName</td>
-                <td>@customer.customerEmail</td>
-                <td>@customer.customerCity</td>
-                <td>
-                    <form>
-                        <button type="submit" asp-action="Edit" asp-controller="Customer" asp-route-id="@customer.customerId">Edit</button>
-                    </form>
-                </td>
-                <td>
-                    <form>
-                        <button type="submit" asp-action="Delete" asp-controller="Customer" asp-route-id="@customer.customerId">Delete</button>
-                    </form>
-                </td>
-            </tr>
-        }
-    </tbody>
+    @foreach (Customer customer in Model)
+    {
+        <tr>
+            <td>@customer.customerFirstName</td>
+            <td>@customer.customerLastName</td>
+            <td>@customer.customerEmail</td>
+            <td>@customer.customerCity</td>
+            <td>
+                <form>
+                    <button class="btn btn-primary"type="submit" asp-action="Edit" asp-controller="Customer" asp-route-id="@customer.customerId">Edit</button>
+                </form>
+            </td>
+            <td>
+                <form>
+                    <button class="btn btn-primary"type="submit" asp-action="Delete" asp-controller="Customer" asp-route-id="@customer.customerId">Delete</button>
+                </form>
+            </td>
+        </tr>
+    }
 </table>
 <form>
-    <button type="submit" asp-action="Add" asp-controller="Customer">Add Customer</button>
+    <button class="btn btn-primary"type="submit" asp-action="Add" asp-controller="Customer">Add Customer</button>
 </form>

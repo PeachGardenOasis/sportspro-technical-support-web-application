@@ -51,8 +51,8 @@
         <br />
         <input type="text" id="incidentDateClosed" name="incidentDateClosed" value="" asp-for="incidentDateClosed" />
         <br /><br />
-        <input type="submit" value="Save" />
-        <button type="button" onclick="location.href='@Url.Action("List", "Incident")'">Cancel</button>
+        <input class="btn btn-primary"type="submit" value="Save" />
+        <button class="btn btn-primary"type="button" onclick="location.href='@Url.Action("List", "Incident")'">Cancel</button>
     </form>
 }
 
@@ -106,7 +106,7 @@
         <br />
         <input type="text" id="incidentDateClosed" name="incidentDateClosed" value="@Model.incidentDateClosed" asp-for="incidentDateClosed" />
         <br /><br />
-        <input type="submit" value="Save" />
-        <button type="button" onclick="location.href='@Url.Action("List", "Incident")'">Cancel</button>
+        <input class="btn btn-primary"type="submit" value="Save" />
+        <button class="btn btn-primary"type="button" onclick="location.href='@Url.Action("List", "Incident")'">Cancel</button>
     </form>
 }

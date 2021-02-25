@@ -21,8 +21,8 @@
         <br />
         <input type="text" id="productReleaseDate" name="productReleaseDate" value="@DateTime.Now" asp-for="productReleaseDate"/>
         <br /><br />
-        <input type="submit" value="Save"/>
-        <button type="button" onclick="location.href='@Url.Action("List", "Product")'">Cancel</button>
+        <input class="btn btn-primary"type="submit" value="Save"/>
+        <button class="btn btn-primary" type="button" onclick="location.href='@Url.Action("List", "Product")'">Cancel</button>
     </form>
 }
 @if (ViewBag.Action == "Edit")
@@ -46,7 +46,7 @@
         <input type="text" id="productReleaseDate" name="productReleaseDate" value="@Model.productReleaseDate" asp-for="productReleaseDate"/>
         <br />
         <br />
-        <input type="submit" value="Save" />
-        <button type="button" onclick="location.href='@Url.Action("List", "Product")'">Cancel</button>
+        <input class="btn btn-primary"type="submit" value="Save" />
+        <button class="btn btn-primary" type="button" onclick="location.href='@Url.Action("List", "Product")'">Cancel</button>
     </form>
 }
