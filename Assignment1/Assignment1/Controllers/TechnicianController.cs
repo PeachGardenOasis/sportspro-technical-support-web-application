@@ -36,8 +36,7 @@ namespace Assignment1.Controllers
         public IActionResult Edit(int id)
         {
             ViewBag.Action = "Edit";
-            ViewBag.Country = context.Country.OrderBy(context => context.countryName).ToList();
-
+            
             var technician = context.Technician
                 .FirstOrDefault(context => context.technicianId == id);
             return View(technician);
