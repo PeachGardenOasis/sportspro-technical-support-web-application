@@ -16,8 +16,7 @@
     @foreach (Customer customer in Model)
     {
         <tr>
-            <td>@customer.customerFirstName</td>
-            <td>@customer.customerLastName</td>
+            <td>@(customer.customerFirstName + " " + customer.customerLastName)</td>
             <td>@customer.customerEmail</td>
             <td>@customer.customerCity</td>
             <td>

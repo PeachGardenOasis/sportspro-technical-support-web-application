@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Assignment1.Migrations
 {
     [DbContext(typeof(IncidentContext))]
-    [Migration("20210225212633_Initial")]
-    partial class Initial
+    [Migration("20210226020152_initial")]
+    partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -250,7 +250,7 @@ namespace Assignment1.Migrations
                             incidentCustomerId = 5,
                             incidentDateClosed = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             incidentDateOpened = new DateTime(2020, 1, 8, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            incidentDescription = " ",
+                            incidentDescription = "Program failed to install with error code 502",
                             incidentProductId = 4,
                             incidentTechnicianId = 1,
                             incidentTitle = "Could not install"
@@ -261,7 +261,7 @@ namespace Assignment1.Migrations
                             incidentCustomerId = 3,
                             incidentDateClosed = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             incidentDateOpened = new DateTime(2020, 1, 8, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            incidentDescription = " ",
+                            incidentDescription = "Program failed to install with error code 502",
                             incidentProductId = 1,
                             incidentTechnicianId = 2,
                             incidentTitle = "Could not install"
@@ -272,7 +272,7 @@ namespace Assignment1.Migrations
                             incidentCustomerId = 2,
                             incidentDateClosed = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             incidentDateOpened = new DateTime(2020, 1, 9, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            incidentDescription = " ",
+                            incidentDescription = "Program fails with error code 511, unable to locate database",
                             incidentProductId = 3,
                             incidentTechnicianId = 3,
                             incidentTitle = "Error importing data"
@@ -283,7 +283,7 @@ namespace Assignment1.Migrations
                             incidentCustomerId = 5,
                             incidentDateClosed = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             incidentDateOpened = new DateTime(2020, 1, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            incidentDescription = " ",
+                            incidentDescription = "Program fails with error code 510, unable to open database",
                             incidentProductId = 2,
                             incidentTechnicianId = 4,
                             incidentTitle = "Error launching program"

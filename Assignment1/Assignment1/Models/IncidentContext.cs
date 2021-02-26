@@ -247,7 +247,7 @@ namespace Assignment1.Models
                     incidentCustomerId = 5,
                     incidentProductId = 4,
                     incidentTitle = "Could not install",
-                    incidentDescription = " ",
+                    incidentDescription = "Program failed to install with error code 502",
                     incidentTechnicianId = 1, // needed for editing incident page
                     incidentDateOpened = new DateTime(2020, 1, 8),
                     incidentDateClosed = new DateTime(),
@@ -262,7 +262,7 @@ namespace Assignment1.Models
                     incidentProductId = 1,
                     incidentDateOpened = new DateTime(2020, 1, 8),
                     incidentDateClosed = new DateTime(),
-                    incidentDescription = " ",
+                    incidentDescription = "Program failed to install with error code 502",
                     incidentTechnicianId = 2,
                 },
                 new Incident
@@ -273,7 +273,7 @@ namespace Assignment1.Models
                     incidentProductId = 3,
                     incidentDateOpened = new DateTime(2020, 1, 9),
                     incidentDateClosed = new DateTime(),
-                    incidentDescription = " ",
+                    incidentDescription = "Program fails with error code 511, unable to locate database",
                     incidentTechnicianId = 3,
                 },
                 new Incident
@@ -284,7 +284,7 @@ namespace Assignment1.Models
                     incidentProductId = 2,
                     incidentDateOpened = new DateTime(2020, 1, 10),
                     incidentDateClosed = new DateTime(),
-                    incidentDescription = " ",
+                    incidentDescription = "Program fails with error code 510, unable to open database",
                     incidentTechnicianId = 4,
                 }
                 );
