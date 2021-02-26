@@ -18,7 +18,7 @@ Pull requests are welcome. For major changes, please open an issue first to emai
 Please make sure to update tests as appropriate.
 
 ## License
-[GBCSporting2021_RuntimeTerrors]
+[RuntimeTerrors]
 
 Chi Calvin Nguyen 101203877 ChiCalvin.Nguyen@georgebrown.ca
 
