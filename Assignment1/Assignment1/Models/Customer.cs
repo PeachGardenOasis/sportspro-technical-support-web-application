@@ -28,7 +28,7 @@ namespace Assignment1.Models
         [Required(ErrorMessage = "Please enter a valid Customer Postal Code")] 
         public string customerPostalCode { get; set; }
 
-        [Range(1, 100000, ErrorMessage = "Please select a country")]
+        [Range(1, 100000, ErrorMessage = "Please select a Country")]
         public int customerCountryId { get; set; }
 
         public Country customerCountry { get; set; } 

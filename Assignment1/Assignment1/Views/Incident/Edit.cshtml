@@ -3,110 +3,134 @@
 
 @if (ViewBag.Action == "Add")
 {
-    <form asp-action="Edit" asp-controller="Incident" method="post">
-        <input type="hidden" value="0" asp-for="incidentId" />
-        <label for="incidentCustomerId">Customer</label>
-        <br />
-        <select id="incidentCustomerId" name="incidentCustomerId" asp-for="incidentCustomerId">
-            <option selected="selected" value="">Select a customer...</option>
-            @foreach (Customer customer in ViewBag.Customer)
-            {
-                <option value="@customer.customerId">@customer.customerFirstName @customer.customerLastName</option>
-            }
-        </select>
-        <br />
-        <label for="incidentProductId">Product</label>
-        <br />
-        <select id="incidentProductId" name="incidentProductId" asp-for="incidentProductId">
-            <option selected="selected" value="">Select a product...</option>
-            @foreach (Product product in ViewBag.Product)
-            {
-                <option value="@product.productId">@product.productName</option>
-            }
-        </select>
-        <br />
-        <label for="incidentTitle">Title</label>
-        <br />
-        <input type="text" id="incidentTitle" name="incidentTitle" asp-for="incidentTitle" />
-        <br />
-        <label for="incidentDescription">Description</label>
-        <br />
-        <input type="text" id="incidentDescription" name="incidentDescription" asp-for="incidentDescription" />
-        <br />
-        <label for="incidentTechnicianId">Technician</label>
-        <br />
-        <select id="incidentTechnicianId" name="incidentTechnicianId" asp-for="incidentTechnicianId">
-            <option selected="selected" value="">Select a technician...</option>
-            @foreach (Technician technician in ViewBag.Technician)
-            {
-                <option value="@technician.technicianId">@technician.technicianFullName</option>
-            }
-        </select>
-        <br />
-        <label for="incidentDateOpened">Date Opened</label>
-        <br />
-        <input type="text" id="incidentDateOpened" name="incidentDateOpened" value="@DateTime.Now" asp-for="incidentDateOpened" />
-        <br />
-        <label for="incidentDateClosed">Date Closed</label>
-        <br />
-        <input type="text" id="incidentDateClosed" name="incidentDateClosed" value="" asp-for="incidentDateClosed" />
-        <br /><br />
-        <input class="btn btn-primary"type="submit" value="Save" />
-        <button class="btn btn-primary"type="button" onclick="location.href='@Url.Action("List", "Incident")'">Cancel</button>
-    </form>
+<form asp-action="Edit" asp-controller="Incident" method="post">
+    <input type="hidden" value="0" asp-for="incidentId" />
+    <label for="incidentCustomerId">Customer</label>
+    <br />
+    <select id="incidentCustomerId" name="incidentCustomerId" asp-for="incidentCustomerId">
+
+        <option selected="selected" value="">Select a customer...</option>
+        @foreach (Customer customer in ViewBag.Customer)
+        {
+            <option value="@customer.customerId">@customer.customerFirstName @customer.customerLastName</option>
+
+
+        }
+    </select>
+    <span asp-validation-for="incidentCustomerId" class="text-danger"></span>
+    <br />
+    <label for="incidentProductId">Product</label>
+    <br />
+    <select id="incidentProductId" name="incidentProductId" asp-for="incidentProductId">
+
+        <option selected="selected" value="">Select a product...</option>
+        @foreach (Product product in ViewBag.Product)
+        {
+            <option value="@product.productId">@product.productName</option>
+        }
+    </select>
+    <span asp-validation-for="incidentProductId" class="text-danger"></span>
+    <br />
+    <label for="incidentTitle">Title</label>
+    <br />
+    <input type="text" id="incidentTitle" name="incidentTitle" asp-for="incidentTitle" />
+    <span asp-validation-for="incidentTitle" class="text-danger"></span>
+
+    <br />
+    <label for="incidentDescription">Description</label>
+    <br />
+    <input type="text" id="incidentDescription" name="incidentDescription" asp-for="incidentDescription" />
+    <span asp-validation-for="incidentDescription" class="text-danger"></span>
+
+    <br />
+    <label for="incidentTechnicianId">Technician</label>
+    <br />
+    <select id="incidentTechnicianId" name="incidentTechnicianId" asp-for="incidentTechnicianId">
+
+
+        <option selected="selected" value="">Select a technician...</option>
+        @foreach (Technician technician in ViewBag.Technician)
+        {
+            <option value="@technician.technicianId">@technician.technicianFullName</option>
+        }
+    </select>
+    <br />
+    <label for="incidentDateOpened">Date Opened</label>
+    <br />
+    <input type="text" id="incidentDateOpened" name="incidentDateOpened" value="@DateTime.Now" asp-for="incidentDateOpened" />
+    <br />
+    <label for="incidentDateClosed">Date Closed</label>
+    <br />
+    <input type="text" id="incidentDateClosed" name="incidentDateClosed" value="" asp-for="incidentDateClosed" />
+    <span asp-validation-for="incidentDateClosed" class="text-danger"></span>
+
+    <br /><br />
+    <input class="btn btn-primary" type="submit" value="Save" />
+    <button class="btn btn-primary" type="button" onclick="location.href='@Url.Action("List", "Incident")'">Cancel</button>
+</form>
 }
 
 @if (ViewBag.Action == "Edit")
 {
-    <form asp-action="Edit" asp-controller="Incident" method="post">
-        <input type="hidden" value="@Model.incidentId" asp-for="incidentId" />
-        <label for="incidentCustomerId">Customer</label>
-        <br />
-        <select id="incidentCustomerId" name="incidentCustomerId" asp-for="incidentCustomerId">
-            <option selected="selected" value="">Select a customer...</option>
-            @foreach (Customer customer in ViewBag.Customer)
-            {
-                <option value="@customer.customerId">@customer.customerFirstName @customer.customerLastName</option>
-            }
-        </select>
-        <br />
-        <label for="incidentProductId">Product</label>
-        <br />
-        <select id="incidentProductId" name="incidentProductId" asp-for="incidentProductId">
-            <option selected="selected" value="">Select a product...</option>
-            @foreach (Product product in ViewBag.Product)
-            {
-                <option value="@product.productId">@product.productName</option>
-            }
-        </select>
-        <br />
-        <label for="incidentTitle">Title</label>
-        <br />
-        <input type="text" id="incidentTitle" name="incidentTitle" asp-for="incidentTitle" value="@Model.incidentTitle"/>
-        <br />
-        <label for="incidentDescription">Description</label>
-        <br />
-        <input type="text" id="incidentDescription" name="incidentDescription" asp-for="incidentDescription"  value="@Model.incidentDescription"/>
-        <br />
-        <label for="incidentTechnicianId">Technician</label>
-        <br />
-        <select id="incidentTechnicianId" name="incidentTechnicianId" asp-for="incidentTechnicianId">
-            <option selected="selected" value="">Select a technician...</option>
-            @foreach (Technician technician in ViewBag.Technician)
-            {
-                <option value="@technician.technicianId">@technician.technicianFullName</option>
-            }
-        </select>
-        <br />
-        <label for="incidentDateOpened">Date Opened</label>
-        <br />
-        <input type="text" id="incidentDateOpened" name="incidentDateOpened" value="@Model.incidentDateOpened" asp-for="incidentDateOpened" />
-        <br />
-        <label for="incidentDateClosed">Date Closed</label>
-        <br />
-        <input type="text" id="incidentDateClosed" name="incidentDateClosed" value="@Model.incidentDateClosed" asp-for="incidentDateClosed" />
-        <br /><br />
-        <input class="btn btn-primary"type="submit" value="Save" />
-        <button class="btn btn-primary"type="button" onclick="location.href='@Url.Action("List", "Incident")'">Cancel</button>
-    </form>
+<form asp-action="Edit" asp-controller="Incident" method="post">
+    <input type="hidden" value="@Model.incidentId" asp-for="incidentId" />
+    <label for="incidentCustomerId">Customer</label>
+    <br />
+    <select id="incidentCustomerId" name="incidentCustomerId" asp-for="incidentCustomerId">
+        <option selected="selected" value="">Select a customer...</option>
+        @foreach (Customer customer in ViewBag.Customer)
+        {
+            <option value="@customer.customerId">@customer.customerFirstName @customer.customerLastName</option>
+        }
+    </select>
+    <span asp-validation-for="incidentCustomerId" class="text-danger"></span>
+
+    <br />
+    <label for="incidentProductId">Product</label>
+    <br />
+    <select id="incidentProductId" name="incidentProductId" asp-for="incidentProductId">
+        <option selected="selected" value="">Select a product...</option>
+        @foreach (Product product in ViewBag.Product)
+        {
+            <option value="@product.productId">@product.productName</option>
+        }
+    </select>
+    <span asp-validation-for="incidentProductId" class="text-danger"></span>
+
+    <br />
+    <label for="incidentTitle">Title</label>
+    <br />
+    <input type="text" id="incidentTitle" name="incidentTitle" asp-for="incidentTitle" value="@Model.incidentTitle" />
+    <span asp-validation-for="incidentTitle" class="text-danger"></span>
+
+    <br />
+    <label for="incidentDescription">Description</label>
+    <br />
+    <input type="text" id="incidentDescription" name="incidentDescription" asp-for="incidentDescription" value="@Model.incidentDescription" />
+    <span asp-validation-for="incidentDescription" class="text-danger"></span>
+
+    <br />
+    <label for="incidentTechnicianId">Technician</label>
+    <br />
+    <select id="incidentTechnicianId" name="incidentTechnicianId" asp-for="incidentTechnicianId">
+        <option selected="selected" value="">Select a technician...</option>
+        @foreach (Technician technician in ViewBag.Technician)
+        {
+            <option value="@technician.technicianId">@technician.technicianFullName</option>
+        }
+    </select>
+    <br />
+    <label for="incidentDateOpened">Date Opened</label>
+    <br />
+    <input type="text" id="incidentDateOpened" name="incidentDateOpened" value="@Model.incidentDateOpened" asp-for="incidentDateOpened" />
+    <br />
+    <label for="incidentDateClosed">Date Closed</label>
+    <br />
+    <input type="text" id="incidentDateClosed" name="incidentDateClosed" value="@Model.incidentDateClosed" asp-for="incidentDateClosed" />
+    <span asp-validation-for="incidentDateClosed" class="text-danger"></span>
+
+    <br /><br />
+    <input class="btn btn-primary" type="submit" value="Save" />
+    <button class="btn btn-primary" type="button" onclick="location.href='@Url.Action("List", "Incident")'">Cancel</button>
+</form>
 }

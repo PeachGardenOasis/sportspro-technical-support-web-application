@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Assignment1.Models;
 using Microsoft.EntityFrameworkCore;
+using System.ComponentModel.DataAnnotations;
 
 namespace Assignment1.Controllers
 {
@@ -16,7 +17,7 @@ namespace Assignment1.Controllers
         {
             context = ctx;
         }
-
+        
         public IActionResult List()
         {
             var product = context.Product;
@@ -70,6 +71,7 @@ namespace Assignment1.Controllers
             }
             else
             {
+
                 ViewBag.Action = action;
                 return View(product);
             }
