@@ -1,4 +1,4 @@
-(/https://i.imgur.com/B0niXlG.png)
+![myimage-alt-tag](https://i.imgur.com/B0niXlG.png)
 
 
 # SportsPro Technical Support Web Application Development - Phase 1
