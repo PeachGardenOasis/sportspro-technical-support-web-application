@@ -1,7 +1,7 @@
 ![myimage-alt-tag](https://i.imgur.com/B0niXlG.png)
 
 
-# SportsPro Technical Support Web Application Development - Phase 1
+# SportsPro Technical Support Web Application Development 
 
 ## Install 
 
